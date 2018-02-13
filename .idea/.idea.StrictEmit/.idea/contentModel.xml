@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.Rider2017.3/system/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_StrictEmit.-1164573610.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p=".gitignore" t="Include" />
+      <e p=".travis.yml" t="Include" />
+      <e p="README.md" t="Include" />
+      <e p="StrictEmit" t="IncludeRecursive">
+        <e p="FodyWeavers.xml" t="Include" />
+        <e p="ILGeneratorExtensions.cs" t="Include" />
+        <e p="StrictEmit.csproj" t="IncludeRecursive" />
+        <e p="StrictEmit.xml" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="StrictEmit.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="StrictEmit.sln" t="IncludeFlat" />
+      <e p="appveyor.yml" t="Include" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="stylecop.json" t="Include" />
+      <e p="stylecop.ruleset" t="Include" />
+    </e>
+  </component>
+</project>
