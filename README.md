@@ -11,3 +11,9 @@ Furthermore, the library provides builtin instruction optimization, picking the 
 have optimized versions for certain conditions (`Ldarg` with indexes 0-3, etc).
 
 All extension methods follow the naming pattern of `Emit<InstructionEffect>`.
+
+## Installing
+Get it on [NuGet][1].
+
+
+[1]: https://www.nuget.org/packages/StrictEmit

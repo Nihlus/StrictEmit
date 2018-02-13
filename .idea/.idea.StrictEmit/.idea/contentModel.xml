@@ -9,6 +9,7 @@
       <e p="StrictEmit" t="IncludeRecursive">
         <e p="FodyWeavers.xml" t="Include" />
         <e p="ILGeneratorExtensions.cs" t="Include" />
+        <e p="StrictEmit.ExternalAnnotations.xml" t="Include" />
         <e p="StrictEmit.csproj" t="IncludeRecursive" />
         <e p="StrictEmit.xml" t="Include" />
         <e p="bin" t="ExcludeRecursive" />

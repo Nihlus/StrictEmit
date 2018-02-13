@@ -731,6 +731,7 @@
             Loads the element at a specified array index onto the top of the evaluation stack as the specified type, or
             as an object reference.
             </summary>
+            <typeparam name="T">The type.</typeparam>
             <param name="il">The generator where the IL is to be emitted.</param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadArrayElement(System.Reflection.Emit.ILGenerator,System.Type)">
@@ -746,6 +747,7 @@
             Loads the address of the array element at a specified array index onto the top of the evaluation stack as
             type <strong>&amp;</strong> (managed pointer).
             </summary>
+            <typeparam name="T">The type.</typeparam>
             <param name="il">The generator where the IL is to be emitted.</param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadArrayElementAddress(System.Reflection.Emit.ILGenerator,System.Type)">
@@ -783,6 +785,7 @@
             Loads a value or object reference of the given type as a <strong>native int</strong> onto the evaluation
             stack indirectly.
             </summary>
+            <typeparam name="T">The type.</typeparam>
             <param name="il">The generator where the IL is to be emitted.</param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitDereferencePointer(System.Reflection.Emit.ILGenerator,System.Type)">
@@ -798,6 +801,7 @@
             Loads a value or object reference of the given type as a <strong>native int</strong> onto the evaluation
             stack indirectly.
             </summary>
+            <typeparam name="T">The type.</typeparam>
             <param name="il">The generator where the IL is to be emitted.</param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadIndirect(System.Reflection.Emit.ILGenerator,System.Type)">
@@ -840,6 +844,7 @@
             <summary>
             Copies the value type object pointed to by an address to the top of the evaluation stack.
             </summary>
+            <typeparam name="T">The type.</typeparam>
             <param name="il">The generator where the IL is to be emitted.</param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadObject(System.Reflection.Emit.ILGenerator,System.Type)">
