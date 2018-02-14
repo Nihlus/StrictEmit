@@ -198,6 +198,12 @@
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
     </parameter>
   </member>
+  <member name="M:StrictEmit.ILGeneratorExtensions.EmitConstantInt(System.Reflection.Emit.ILGenerator,System.Int32)">
+    <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
+    <parameter name="il">
+      <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
+    </parameter>
+  </member>
   <member name="M:StrictEmit.ILGeneratorExtensions.EmitConstantLong(System.Reflection.Emit.ILGenerator,System.Int64)">
     <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
     <parameter name="il">
@@ -573,12 +579,6 @@
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
     </parameter>
   </member>
-  <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadConstantInt(System.Reflection.Emit.ILGenerator,System.Int32)">
-    <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
-    <parameter name="il">
-      <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
-    </parameter>
-  </member>
   <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadConstantString(System.Reflection.Emit.ILGenerator,System.String)">
     <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
     <parameter name="il">
@@ -768,11 +768,17 @@
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
     </parameter>
   </member>
+  <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewArray(System.Reflection.Emit.ILGenerator,System.Type,System.Int32)">
+    <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
+  </member>
   <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewArray``1(System.Reflection.Emit.ILGenerator)">
     <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
     <parameter name="il">
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
     </parameter>
+  </member>
+  <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewArray``1(System.Reflection.Emit.ILGenerator,System.Int32)">
+    <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
   </member>
   <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewObject(System.Reflection.Emit.ILGenerator,System.Reflection.ConstructorInfo)">
     <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />

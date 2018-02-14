@@ -917,7 +917,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="value">The value.</param>
         [PublicAPI]
-        public static void EmitLoadConstantInt([NotNull] this ILGenerator il, int value)
+        public static void EmitConstantInt([NotNull] this ILGenerator il, int value)
         {
             switch (value)
             {
@@ -1495,6 +1495,31 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
         public static void EmitNegate([NotNull] this ILGenerator il) => il.Emit(OpCodes.Neg);
+
+        /// <summary>
+        /// Pushes an object reference to a new zero-based, one-dimensional array of the given length whose elements are
+        /// of a specific type onto the evaluation stack.
+        /// </summary>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="elementType">The element type.</param>
+        /// <param name="elementCount">The number of elements in the array.</param>
+        [PublicAPI]
+        public static void EmitNewArray(this ILGenerator il, Type elementType, int elementCount)
+        {
+            il.EmitConstantInt(elementCount);
+            il.EmitNewArray(elementType);
+        }
+
+        /// <summary>
+        /// Pushes an object reference to a new zero-based, one-dimensional array of the given length whose elements are
+        /// of a specific type onto the evaluation stack.
+        /// </summary>
+        /// <typeparam name="T">The element type.</typeparam>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="elementCount">The number of elements in the array.</param>
+        [PublicAPI]
+        public static void EmitNewArray<T>(this ILGenerator il, int elementCount)
+            => il.EmitNewArray(typeof(T), elementCount);
 
         /// <summary>
         /// Pushes an object reference to a new zero-based, one-dimensional array whose elements are of a specific type

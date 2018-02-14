@@ -695,7 +695,7 @@
             <param name="il">The generator where the IL is to be emitted.</param>
             <param name="argumentIndex">The argument index.</param>
         </member>
-        <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadConstantInt(System.Reflection.Emit.ILGenerator,System.Int32)">
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitConstantInt(System.Reflection.Emit.ILGenerator,System.Int32)">
             <summary>
             Pushes a supplied value onto the evaluation stack as an <strong>int32</strong>. This method will use the
             appropriate constant- or short-optimized instruction, if applicable.
@@ -965,6 +965,24 @@
             Negates a value and pushes the result onto the evaluation stack.
             </summary>
             <param name="il">The generator where the IL is to be emitted.</param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewArray(System.Reflection.Emit.ILGenerator,System.Type,System.Int32)">
+            <summary>
+            Pushes an object reference to a new zero-based, one-dimensional array of the given length whose elements are
+            of a specific type onto the evaluation stack.
+            </summary>
+            <param name="il">The generator where the IL is to be emitted.</param>
+            <param name="elementType">The element type.</param>
+            <param name="elementCount">The number of elements in the array.</param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewArray``1(System.Reflection.Emit.ILGenerator,System.Int32)">
+            <summary>
+            Pushes an object reference to a new zero-based, one-dimensional array of the given length whose elements are
+            of a specific type onto the evaluation stack.
+            </summary>
+            <typeparam name="T">The element type.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.</param>
+            <param name="elementCount">The number of elements in the array.</param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewArray``1(System.Reflection.Emit.ILGenerator)">
             <summary>
