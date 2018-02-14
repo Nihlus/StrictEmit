@@ -8,7 +8,16 @@
       <e p="README.md" t="Include" />
       <e p="StrictEmit" t="IncludeRecursive">
         <e p="FodyWeavers.xml" t="Include" />
-        <e p="ILGeneratorExtensions.cs" t="Include" />
+        <e p="ILGeneratorExtensions.Arrays.cs" t="Include" />
+        <e p="ILGeneratorExtensions.Calls.cs" t="Include" />
+        <e p="ILGeneratorExtensions.ControlFlow.cs" t="Include" />
+        <e p="ILGeneratorExtensions.Conversions.cs" t="Include" />
+        <e p="ILGeneratorExtensions.Math.cs" t="Include" />
+        <e p="ILGeneratorExtensions.Objects.cs" t="Include" />
+        <e p="ILGeneratorExtensions.Pointers.cs" t="Include" />
+        <e p="ILGeneratorExtensions.Utility.cs" t="Include" />
+        <e p="ILGeneratorExtensions.Values.cs" t="Include" />
+        <e p="ILGeneratorExtensions.Variables.cs" t="Include" />
         <e p="StrictEmit.ExternalAnnotations.xml" t="Include" />
         <e p="StrictEmit.csproj" t="IncludeRecursive" />
         <e p="StrictEmit.xml" t="Include" />
