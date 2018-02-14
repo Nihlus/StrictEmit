@@ -579,7 +579,7 @@
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
     </parameter>
   </member>
-  <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadConstantString(System.Reflection.Emit.ILGenerator,System.String)">
+  <member name="M:StrictEmit.ILGeneratorExtensions.EmitConstantString(System.Reflection.Emit.ILGenerator,System.String)">
     <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
     <parameter name="il">
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />

@@ -1381,7 +1381,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="value">The string value.</param>
         [PublicAPI]
-        public static void EmitLoadConstantString([NotNull] this ILGenerator il, string value)
+        public static void EmitConstantString([NotNull] this ILGenerator il, string value)
             => il.Emit(OpCodes.Ldstr, value);
 
         /// <summary>

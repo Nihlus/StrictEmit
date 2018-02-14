@@ -868,7 +868,7 @@
             <param name="il">The generator where the IL is to be emitted.</param>
             <param name="field">The field.</param>
         </member>
-        <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadConstantString(System.Reflection.Emit.ILGenerator,System.String)">
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitConstantString(System.Reflection.Emit.ILGenerator,System.String)">
             <summary>
             Pushes a new object reference to a string literal stored in the metadata.
             </summary>
