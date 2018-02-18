@@ -42,6 +42,15 @@ namespace StrictEmit
             => il.Emit(OpCodes.Call, method);
 
         /// <summary>
+        /// Calls the constructor indicated by the passed constructor descriptor.
+        /// </summary>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="constructor">The constructor.</param>
+        [PublicAPI]
+        public static void EmitCallDirect([NotNull] this ILGenerator il, [NotNull] ConstructorInfo constructor)
+            => il.Emit(OpCodes.Call, constructor);
+
+        /// <summary>
         /// Calls a late-bound method on an object, pushing the return value onto the evaluation stack.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
@@ -49,6 +58,15 @@ namespace StrictEmit
         [PublicAPI]
         public static void EmitCallVirtual([NotNull] this ILGenerator il, [NotNull] MethodInfo method)
             => il.Emit(OpCodes.Callvirt, method);
+
+        /// <summary>
+        /// Calls a late-bound constructor on an object, pushing the return value onto the evaluation stack.
+        /// </summary>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="constructor">The constructor.</param>
+        [PublicAPI]
+        public static void EmitCallVirtual([NotNull] this ILGenerator il, [NotNull] ConstructorInfo constructor)
+            => il.Emit(OpCodes.Callvirt, constructor);
 
         /// <summary>
         /// Attempts to cast an object passed by reference to the specified class.
