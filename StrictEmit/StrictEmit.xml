@@ -106,6 +106,41 @@
             </summary>
             <param name="il">The generator where the IL is to be emitted.</param>
         </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallConstructorDirect``1(System.Reflection.Emit.ILGenerator,System.Type[])">
+            <summary>
+            Calls the constructor on the given type indicated by the (optional) parameter type set.
+            </summary>
+            <typeparam name="T">The type in which the constructor exists.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.</param>
+            <param name="parameterTypes">The parameter types of the constructor.</param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallConstructorVirtual``1(System.Reflection.Emit.ILGenerator,System.Type[])">
+            <summary>
+            Calls a late-bound constructor on the given type indicated by the (optional) parameter type set.
+            </summary>
+            <typeparam name="T">The type in which the constructor exists.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.</param>
+            <param name="parameterTypes">The parameter types of the constructor.</param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallDirect``1(System.Reflection.Emit.ILGenerator,System.String,System.Type[])">
+            <summary>
+            Calls the method in the given type, indicated by its name (and optionally, its parameters).
+            </summary>
+            <typeparam name="T">The type in which the method exists.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.</param>
+            <param name="functionName">The name of the function.</param>
+            <param name="parameterTypes">The parameter types of the function.</param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallVirtual``1(System.Reflection.Emit.ILGenerator,System.String,System.Type[])">
+            <summary>
+            Calls a late-bound method on an object, pushing the return value onto the evaluation stack. The method is
+            resolved in the given type, indicated by its name (and optionally, its parameters).
+            </summary>
+            <typeparam name="T">The type in which the method exists.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.</param>
+            <param name="functionName">The name of the function.</param>
+            <param name="parameterTypes">The parameter types of the function.</param>
+        </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallDirect(System.Reflection.Emit.ILGenerator,System.Reflection.MethodInfo)">
             <summary>
             Calls the method indicated by the passed method descriptor.
@@ -113,12 +148,26 @@
             <param name="il">The generator where the IL is to be emitted.</param>
             <param name="method">The method.</param>
         </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallDirect(System.Reflection.Emit.ILGenerator,System.Reflection.ConstructorInfo)">
+            <summary>
+            Calls the constructor indicated by the passed constructor descriptor.
+            </summary>
+            <param name="il">The generator where the IL is to be emitted.</param>
+            <param name="constructor">The constructor.</param>
+        </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallVirtual(System.Reflection.Emit.ILGenerator,System.Reflection.MethodInfo)">
             <summary>
             Calls a late-bound method on an object, pushing the return value onto the evaluation stack.
             </summary>
             <param name="il">The generator where the IL is to be emitted.</param>
             <param name="method">The method.</param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallVirtual(System.Reflection.Emit.ILGenerator,System.Reflection.ConstructorInfo)">
+            <summary>
+            Calls a late-bound constructor on an object, pushing the return value onto the evaluation stack.
+            </summary>
+            <param name="il">The generator where the IL is to be emitted.</param>
+            <param name="constructor">The constructor.</param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitCastClass(System.Reflection.Emit.ILGenerator,System.Type)">
             <summary>

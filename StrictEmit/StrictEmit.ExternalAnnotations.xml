@@ -132,6 +132,25 @@
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
     </parameter>
   </member>
+  <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallConstructorDirect``1(System.Reflection.Emit.ILGenerator,System.Type[])">
+    <parameter name="il">
+      <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
+    </parameter>
+  </member>
+  <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallConstructorVirtual``1(System.Reflection.Emit.ILGenerator,System.Type[])">
+    <parameter name="il">
+      <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
+    </parameter>
+  </member>
+  <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallDirect(System.Reflection.Emit.ILGenerator,System.Reflection.ConstructorInfo)">
+    <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
+    <parameter name="il">
+      <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
+    </parameter>
+    <parameter name="constructor">
+      <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
+    </parameter>
+  </member>
   <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallDirect(System.Reflection.Emit.ILGenerator,System.Reflection.MethodInfo)">
     <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
     <parameter name="il">
@@ -141,12 +160,37 @@
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
     </parameter>
   </member>
+  <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallDirect``1(System.Reflection.Emit.ILGenerator,System.String,System.Type[])">
+    <parameter name="il">
+      <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
+    </parameter>
+    <parameter name="functionName">
+      <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
+    </parameter>
+  </member>
+  <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallVirtual(System.Reflection.Emit.ILGenerator,System.Reflection.ConstructorInfo)">
+    <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
+    <parameter name="il">
+      <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
+    </parameter>
+    <parameter name="constructor">
+      <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
+    </parameter>
+  </member>
   <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallVirtual(System.Reflection.Emit.ILGenerator,System.Reflection.MethodInfo)">
     <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
     <parameter name="il">
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
     </parameter>
     <parameter name="method">
+      <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
+    </parameter>
+  </member>
+  <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallVirtual``1(System.Reflection.Emit.ILGenerator,System.String,System.Type[])">
+    <parameter name="il">
+      <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
+    </parameter>
+    <parameter name="functionName">
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
     </parameter>
   </member>
