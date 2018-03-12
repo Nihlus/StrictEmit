@@ -38,6 +38,7 @@ namespace StrictEmit
         /// <typeparam name="T">The type in which the constructor exists.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="parameterTypes">The parameter types of the constructor.</param>
+        /// <exception cref="EntryPointNotFoundException">Thrown if no matching constructor can be found.</exception>
         public static void EmitCallConstructorDirect<T>([NotNull] this ILGenerator il, params Type[] parameterTypes)
         {
             var type = typeof(T);
@@ -57,6 +58,7 @@ namespace StrictEmit
         /// <typeparam name="T">The type in which the constructor exists.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="parameterTypes">The parameter types of the constructor.</param>
+        /// <exception cref="EntryPointNotFoundException">Thrown if no matching constructor can be found.</exception>
         public static void EmitCallConstructorVirtual<T>([NotNull] this ILGenerator il, params Type[] parameterTypes)
         {
             var type = typeof(T);
@@ -77,6 +79,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="functionName">The name of the function.</param>
         /// <param name="parameterTypes">The parameter types of the function.</param>
+        /// <exception cref="EntryPointNotFoundException">Thrown if no matching method can be found.</exception>
         public static void EmitCallDirect<T>
         (
             [NotNull] this ILGenerator il,
@@ -103,6 +106,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="functionName">The name of the function.</param>
         /// <param name="parameterTypes">The parameter types of the function.</param>
+        /// <exception cref="EntryPointNotFoundException">Thrown if no matching method can be found.</exception>
         public static void EmitCallVirtual<T>
         (
             [NotNull] this ILGenerator il,
