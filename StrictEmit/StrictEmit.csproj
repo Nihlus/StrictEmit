@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net4</TargetFrameworks>
     <DocumentationFile>StrictEmit.xml</DocumentationFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <DefineConstants>$(DefineConstants);JETBRAINS_ANNOTATIONS</DefineConstants>
@@ -18,7 +18,7 @@
     <PackageLicenseUrl>https://www.gnu.org/licenses/gpl-3.0.en.html</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Add additional utility overloads for calling methods.</PackageReleaseNotes>
-    <PackageTags>emit;cil;cross-platform;mono;netcore;netstandard</PackageTags>
+    <PackageTags>emit;cil;cross-platform;mono;netcore;netstandard;netframework</PackageTags>
     <PackageOutputPath>../nuget</PackageOutputPath>
     <IncludeSymbols>True</IncludeSymbols>
     <IncludeSource>True</IncludeSource>
@@ -46,6 +46,8 @@
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta004" PrivateAssets="all" />
     <PackageReference Include="JetBrains.Annotations" Version="11.1.0" PrivateAssets="all" />
     <PackageReference Include="JetBrainsAnnotations.Fody" Version="2.0.0" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
   </ItemGroup>
 </Project>
