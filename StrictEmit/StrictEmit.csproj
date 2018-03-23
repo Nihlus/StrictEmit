@@ -9,7 +9,7 @@
   <PropertyGroup>
     <Title>StrictEmit</Title>
     <Authors>Jax</Authors>
-    <Version>2.1.0</Version>
+    <Version>2.2.0</Version>
     <Description>Better, stricter ILGenerator.Emit</Description>
     <Copyright>Jarl Gullberg 2017</Copyright>
   </PropertyGroup>
@@ -17,7 +17,7 @@
     <PackageId>StrictEmit</PackageId>
     <PackageLicenseUrl>https://www.gnu.org/licenses/gpl-3.0.en.html</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Add additional utility overloads for calling methods.</PackageReleaseNotes>
+    <PackageReleaseNotes>Add .NET 4.5 target.</PackageReleaseNotes>
     <PackageTags>emit;cil;cross-platform;mono;netcore;netstandard;netframework</PackageTags>
     <PackageOutputPath>../nuget</PackageOutputPath>
     <IncludeSymbols>True</IncludeSymbols>

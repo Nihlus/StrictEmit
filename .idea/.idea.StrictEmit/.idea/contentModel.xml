@@ -24,6 +24,9 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
+            <e p="net45" t="Include">
+              <e p="StrictEmit.AssemblyInfo.cs" t="Include" />
+            </e>
             <e p="netstandard2.0" t="Include">
               <e p="StrictEmit.AssemblyInfo.cs" t="Include" />
             </e>
