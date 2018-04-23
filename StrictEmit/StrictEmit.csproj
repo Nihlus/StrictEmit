@@ -9,7 +9,7 @@
   <PropertyGroup>
     <Title>StrictEmit</Title>
     <Authors>Jax</Authors>
-    <Version>2.2.0</Version>
+    <Version>2.3.0</Version>
     <Description>Better, stricter ILGenerator.Emit</Description>
     <Copyright>Jarl Gullberg 2017</Copyright>
   </PropertyGroup>
