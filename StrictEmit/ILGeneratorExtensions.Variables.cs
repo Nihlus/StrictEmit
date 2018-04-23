@@ -158,6 +158,15 @@ namespace StrictEmit
         }
 
         /// <summary>
+        /// Loads the specified local variable onto the evaluation stack.
+        /// </summary>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="local">The local variable.</param>
+        [PublicAPI]
+        public static void EmitLoadLocalVariable([NotNull] this ILGenerator il, LocalBuilder local)
+            => il.Emit(OpCodes.Ldloc, local);
+
+        /// <summary>
         /// Loads the address of the local variable at a specific index onto the evaluation stack. This method will use
         /// the appropriate short-optimized instruction, if applicable.
         /// </summary>
@@ -175,6 +184,15 @@ namespace StrictEmit
                 il.Emit(OpCodes.Ldloca, localIndex);
             }
         }
+
+        /// <summary>
+        /// Loads the address of the local variable at a specific index onto the evaluation stack.
+        /// </summary>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="local">The local variable.</param>
+        [PublicAPI]
+        public static void EmitLoadLocalVariableAddress([NotNull] this ILGenerator il, LocalBuilder local)
+            => il.Emit(OpCodes.Ldloca, local);
 
         /// <summary>
         /// Copies the value type object pointed to by an address to the top of the evaluation stack.
@@ -255,7 +273,7 @@ namespace StrictEmit
             => il.Emit(OpCodes.Stfld, field);
 
         /// <summary>
-        /// Pops the current value from the top of the evaluation stack and stores it in a the local variable list at a
+        /// Pops the current value from the top of the evaluation stack and stores it in the local variable at a
         /// specified index. This method will use the appropriate constant-optimized instruction, if applicable.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
@@ -299,6 +317,15 @@ namespace StrictEmit
                 }
             }
         }
+
+        /// <summary>
+        /// Pops the current value from the top of the evaluation stack and stores it in the specified local variable.
+        /// </summary>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="local">The local variable.</param>
+        [PublicAPI]
+        public static void EmitSetLocalVariable([NotNull] this ILGenerator il, LocalBuilder local)
+            => il.Emit(OpCodes.Stloc, local);
 
         /// <summary>
         /// Replaces the value of a static field with a value from the evaluation stack.
