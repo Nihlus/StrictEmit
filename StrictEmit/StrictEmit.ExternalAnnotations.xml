@@ -683,7 +683,19 @@
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
     </parameter>
   </member>
+  <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadLocalVariable(System.Reflection.Emit.ILGenerator,System.Reflection.Emit.LocalBuilder)">
+    <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
+    <parameter name="il">
+      <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
+    </parameter>
+  </member>
   <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadLocalVariableAddress(System.Reflection.Emit.ILGenerator,System.Int32)">
+    <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
+    <parameter name="il">
+      <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
+    </parameter>
+  </member>
+  <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadLocalVariableAddress(System.Reflection.Emit.ILGenerator,System.Reflection.Emit.LocalBuilder)">
     <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
     <parameter name="il">
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
@@ -803,6 +815,9 @@
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
     </parameter>
   </member>
+  <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewArray(System.Reflection.Emit.ILGenerator,System.Type,System.Int32)">
+    <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
+  </member>
   <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewArray(System.Reflection.Emit.ILGenerator,System.Type)">
     <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
     <parameter name="il">
@@ -812,7 +827,7 @@
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
     </parameter>
   </member>
-  <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewArray(System.Reflection.Emit.ILGenerator,System.Type,System.Int32)">
+  <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewArray``1(System.Reflection.Emit.ILGenerator,System.Int32)">
     <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
   </member>
   <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewArray``1(System.Reflection.Emit.ILGenerator)">
@@ -820,9 +835,6 @@
     <parameter name="il">
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
     </parameter>
-  </member>
-  <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewArray``1(System.Reflection.Emit.ILGenerator,System.Int32)">
-    <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
   </member>
   <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewObject(System.Reflection.Emit.ILGenerator,System.Reflection.ConstructorInfo)">
     <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
@@ -933,6 +945,12 @@
     </parameter>
   </member>
   <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetLocalVariable(System.Reflection.Emit.ILGenerator,System.Int16)">
+    <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
+    <parameter name="il">
+      <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />
+    </parameter>
+  </member>
+  <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetLocalVariable(System.Reflection.Emit.ILGenerator,System.Reflection.Emit.LocalBuilder)">
     <attribute ctor="M:JetBrains.Annotations.PublicAPIAttribute.#ctor" />
     <parameter name="il">
       <attribute ctor="M:JetBrains.Annotations.NotNullAttribute.#ctor" />

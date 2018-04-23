@@ -1267,6 +1267,13 @@
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="localIndex">The index of the local variable.</param>
         </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadLocalVariable(System.Reflection.Emit.ILGenerator,System.Reflection.Emit.LocalBuilder)">
+            <summary>
+            Loads the specified local variable onto the evaluation stack.
+            <p /><c>[PublicAPI]</c></summary>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="local">The local variable.</param>
+        </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadLocalVariableAddress(System.Reflection.Emit.ILGenerator,System.Int32)">
             <summary>
             Loads the address of the local variable at a specific index onto the evaluation stack. This method will use
@@ -1274,6 +1281,13 @@
             <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="localIndex">The index of the variable.</param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadLocalVariableAddress(System.Reflection.Emit.ILGenerator,System.Reflection.Emit.LocalBuilder)">
+            <summary>
+            Loads the address of the local variable at a specific index onto the evaluation stack.
+            <p /><c>[PublicAPI]</c></summary>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="local">The local variable.</param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadObject``1(System.Reflection.Emit.ILGenerator)">
             <summary>
@@ -1320,11 +1334,18 @@
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetLocalVariable(System.Reflection.Emit.ILGenerator,System.Int16)">
             <summary>
-            Pops the current value from the top of the evaluation stack and stores it in a the local variable list at a
+            Pops the current value from the top of the evaluation stack and stores it in the local variable at a
             specified index. This method will use the appropriate constant-optimized instruction, if applicable.
             <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="localIndex">The index of the local variable.</param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetLocalVariable(System.Reflection.Emit.ILGenerator,System.Reflection.Emit.LocalBuilder)">
+            <summary>
+            Pops the current value from the top of the evaluation stack and stores it in the specified local variable.
+            <p /><c>[PublicAPI]</c></summary>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="local">The local variable.</param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetStaticField(System.Reflection.Emit.ILGenerator,System.Reflection.FieldInfo)">
             <summary>
