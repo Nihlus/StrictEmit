@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
     <DocumentationFile>StrictEmit.xml</DocumentationFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <DefineConstants>$(DefineConstants);JETBRAINS_ANNOTATIONS</DefineConstants>
@@ -9,7 +9,7 @@
   <PropertyGroup>
     <Title>StrictEmit</Title>
     <Authors>Jax</Authors>
-    <Version>2.3.0</Version>
+    <Version>2.3.1</Version>
     <Description>Better, stricter ILGenerator.Emit</Description>
     <Copyright>Jarl Gullberg 2017</Copyright>
   </PropertyGroup>
@@ -48,4 +48,5 @@
     <PackageReference Include="JetBrainsAnnotations.Fody" Version="2.2.0" PrivateAssets="all" />
     <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
   </ItemGroup>
+  <Import Project="..\msbuild\netfx-mono.props"/>
 </Project>

@@ -10,6 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "metadata", ".\", "{F1A57014
 		appveyor.yml = appveyor.yml
 	EndProjectSection
 EndProject
+
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "msbuild", ".\msbuild", "{F1A57014-71CE-4032-A652-01B7E35E14DB}"
+	ProjectSection(SolutionItems) = preProject
+		msbuild/netfx-mono.props = msbuild/netfx-mono.props
+	EndProjectSection
+EndProject
+
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrictEmit", "StrictEmit\StrictEmit.csproj", "{32479E3F-69B4-4A2A-BFFF-20421CF2F74D}"
 EndProject
 Global

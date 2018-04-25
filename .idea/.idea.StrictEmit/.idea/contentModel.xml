@@ -24,6 +24,9 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Release" t="Include">
+            <e p="net45" t="Include">
+              <e p="StrictEmit.AssemblyInfo.cs" t="Include" />
+            </e>
             <e p="netstandard2.0" t="Include">
               <e p="StrictEmit.AssemblyInfo.cs" t="Include" />
             </e>
@@ -32,6 +35,9 @@
       </e>
       <e p="StrictEmit.sln" t="IncludeFlat" />
       <e p="appveyor.yml" t="Include" />
+      <e p="msbuild" t="Include">
+        <e p="netfx-mono.props" t="Include" />
+      </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="stylecop.json" t="Include" />
       <e p="stylecop.ruleset" t="Include" />
