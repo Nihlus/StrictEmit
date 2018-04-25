@@ -22,7 +22,9 @@
 using System;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Runtime.InteropServices;
 using JetBrains.Annotations;
+using static System.Reflection.CallingConventions;
 
 namespace StrictEmit
 {
@@ -70,6 +72,106 @@ namespace StrictEmit
             }
 
             il.EmitCallVirtual(constructor);
+        }
+
+        /// <summary>
+        /// Puts a Calli instruction onto the Microsoft intermediate language (MSIL) stream, specifying a managed
+        /// calling convention for the indirect call.
+        /// </summary>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="callingConventions">
+        /// The managed calling conventions of the function pointer on the stack. <see cref="CallingConventions.VarArgs"/>
+        /// may be omitted; it will be added automatically if needed.
+        /// </param>
+        /// <param name="returnType">The return type of the managed function pointer. Defaults to void.</param>
+        /// <param name="parameterTypes">The parameter types of the managed function pointer.</param>
+        /// <param name="optionalParameterTypes">The optional parameter types of the managed function pointer.</param>
+        public static void EmitCallIndirect
+        (
+            [NotNull] this ILGenerator il,
+            CallingConventions callingConventions,
+            [NotNull] Type returnType,
+            [NotNull] Type[] parameterTypes,
+            [NotNull] Type[] optionalParameterTypes
+        )
+        {
+            if (!callingConventions.HasFlag(VarArgs))
+            {
+                callingConventions |= VarArgs;
+            }
+
+            il.EmitCalli(OpCodes.Calli, callingConventions, returnType, parameterTypes, optionalParameterTypes);
+        }
+
+        /// <summary>
+        /// Puts a Calli instruction onto the Microsoft intermediate language (MSIL) stream, specifying a managed
+        /// calling convention for the indirect call.
+        ///
+        /// This method will use the unmanaged calling convention overload if available, and if not, fall back to the
+        /// managed calling convention overload. This is done for backwards compatibility with Mono and the .NET
+        /// Framework, which implement this overload. .NET Core does not implement it before version 2.1, and this
+        /// method may therefore produce unexpected results on versions 2.0 and prior. In particular, it will default to
+        /// the __fastcall unmanaged calling convention. As calling conventions are ignored on non-x86 platforms, this
+        /// is usually not an issue.
+        /// </summary>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="callingConventions">The managed calling conventions of the function pointer on the stack.</param>
+        /// <param name="returnType">The return type of the managed function pointer. Defaults to void.</param>
+        /// <param name="parameterTypes">The parameter types of the managed function pointer.</param>
+        public static void EmitCallIndirect
+        (
+            [NotNull] this ILGenerator il,
+            CallingConventions callingConventions,
+            [CanBeNull] Type returnType = null,
+            [NotNull] params Type[] parameterTypes
+        )
+        {
+            returnType = returnType ?? typeof(void);
+
+            il.EmitCalli(OpCodes.Calli, callingConventions, returnType, parameterTypes, null);
+        }
+
+        /// <summary>
+        /// Puts a Calli instruction onto the Microsoft intermediate language (MSIL) stream, specifying an unmanaged
+        /// calling convention for the indirect call.
+        ///
+        /// This method will use the unmanaged calling convention overload if available, and if not, fall back to the
+        /// managed calling convention overload. This is done for backwards compatibility with Mono and the .NET
+        /// Framework, which implement this overload. .NET Core does not implement it before version 2.1, and this
+        /// method may therefore produce unexpected results on versions 2.0 and prior. In particular, it will default to
+        /// the __fastcall unmanaged calling convention. As calling conventions are ignored on non-x86 platforms, this
+        /// is usually not an issue.
+        /// </summary>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="callingConvention">The unmanaged calling convention of the function pointer on the stack.</param>
+        /// <param name="returnType">The return type of the unmanaged function pointer. Defaults to void.</param>
+        /// <param name="parameterTypes">The parameter types of the unmanaged function pointer.</param>
+        public static void EmitCallIndirect
+        (
+            [NotNull] this ILGenerator il,
+            CallingConvention callingConvention,
+            [CanBeNull] Type returnType = null,
+            [NotNull] params Type[] parameterTypes
+        )
+        {
+            returnType = returnType ?? typeof(void);
+
+            var calliOverload = typeof(ILGenerator).GetMethod
+            (
+                nameof(ILGenerator.EmitCalli),
+                new[] { typeof(OpCode), typeof(CallingConvention), typeof(Type), typeof(Type[]) }
+            );
+
+            if (calliOverload is null)
+            {
+                // Use the existing overload - things may break
+                il.EmitCalli(OpCodes.Calli, Standard, returnType, parameterTypes, null);
+            }
+            else
+            {
+                // Use the correct overload via reflection
+                calliOverload.Invoke(il, new object[] { OpCodes.Calli, callingConvention, returnType, parameterTypes });
+            }
         }
 
         /// <summary>

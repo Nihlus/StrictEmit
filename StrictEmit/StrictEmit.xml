@@ -124,6 +124,54 @@
             <param name="parameterTypes">The parameter types of the constructor.</param>
             <exception cref="T:System.EntryPointNotFoundException">Thrown if no matching constructor can be found.</exception>
         </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallIndirect(System.Reflection.Emit.ILGenerator,System.Reflection.CallingConventions,System.Type,System.Type[],System.Type[])">
+            <summary>
+            Puts a Calli instruction onto the Microsoft intermediate language (MSIL) stream, specifying a managed
+            calling convention for the indirect call.
+            </summary>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="callingConventions">
+            The managed calling conventions of the function pointer on the stack. <see cref="F:System.Reflection.CallingConventions.VarArgs" />
+            may be omitted; it will be added automatically if needed.
+            </param>
+            <param name="returnType">The return type of the managed function pointer. Defaults to void.<p /><c>[NotNull]</c></param>
+            <param name="parameterTypes">The parameter types of the managed function pointer.<p /><c>[NotNull]</c></param>
+            <param name="optionalParameterTypes">The optional parameter types of the managed function pointer.<p /><c>[NotNull]</c></param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallIndirect(System.Reflection.Emit.ILGenerator,System.Reflection.CallingConventions,System.Type,System.Type[])">
+             <summary>
+             Puts a Calli instruction onto the Microsoft intermediate language (MSIL) stream, specifying a managed
+             calling convention for the indirect call.
+            
+             This method will use the unmanaged calling convention overload if available, and if not, fall back to the
+             managed calling convention overload. This is done for backwards compatibility with Mono and the .NET
+             Framework, which implement this overload. .NET Core does not implement it before version 2.1, and this
+             method may therefore produce unexpected results on versions 2.0 and prior. In particular, it will default to
+             the __fastcall unmanaged calling convention. As calling conventions are ignored on non-x86 platforms, this
+             is usually not an issue.
+             </summary>
+             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+             <param name="callingConventions">The managed calling conventions of the function pointer on the stack.</param>
+             <param name="returnType">The return type of the managed function pointer. Defaults to void.<p /><c>[CanBeNull]</c></param>
+             <param name="parameterTypes">The parameter types of the managed function pointer.<p /><c>[NotNull]</c></param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallIndirect(System.Reflection.Emit.ILGenerator,System.Runtime.InteropServices.CallingConvention,System.Type,System.Type[])">
+             <summary>
+             Puts a Calli instruction onto the Microsoft intermediate language (MSIL) stream, specifying an unmanaged
+             calling convention for the indirect call.
+            
+             This method will use the unmanaged calling convention overload if available, and if not, fall back to the
+             managed calling convention overload. This is done for backwards compatibility with Mono and the .NET
+             Framework, which implement this overload. .NET Core does not implement it before version 2.1, and this
+             method may therefore produce unexpected results on versions 2.0 and prior. In particular, it will default to
+             the __fastcall unmanaged calling convention. As calling conventions are ignored on non-x86 platforms, this
+             is usually not an issue.
+             </summary>
+             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+             <param name="callingConvention">The unmanaged calling convention of the function pointer on the stack.</param>
+             <param name="returnType">The return type of the unmanaged function pointer. Defaults to void.<p /><c>[CanBeNull]</c></param>
+             <param name="parameterTypes">The parameter types of the unmanaged function pointer.<p /><c>[NotNull]</c></param>
+        </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallDirect``1(System.Reflection.Emit.ILGenerator,System.String,System.Type[])">
             <summary>
             Calls the method in the given type, indicated by its name (and optionally, its parameters).
