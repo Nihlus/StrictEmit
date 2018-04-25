@@ -13,6 +13,7 @@
         <e p="ILGeneratorExtensions.ControlFlow.cs" t="Include" />
         <e p="ILGeneratorExtensions.Conversions.cs" t="Include" />
         <e p="ILGeneratorExtensions.Math.cs" t="Include" />
+        <e p="ILGeneratorExtensions.Meta.cs" t="Include" />
         <e p="ILGeneratorExtensions.Objects.cs" t="Include" />
         <e p="ILGeneratorExtensions.Pointers.cs" t="Include" />
         <e p="ILGeneratorExtensions.Utility.cs" t="Include" />

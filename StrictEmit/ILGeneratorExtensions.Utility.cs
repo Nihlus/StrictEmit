@@ -63,5 +63,17 @@ namespace StrictEmit
         [PublicAPI]
         public static void EmitSizeOf([NotNull] this ILGenerator il, [NotNull] Type type)
             => il.Emit(OpCodes.Sizeof, type);
+
+        /// <summary>
+        /// Emits a set of IL instructions which will produce the equivalent of a typeof(T) call, placing it onto the
+        /// evaluation stack.
+        /// </summary>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="type">The type to be emitted.</param>
+        public static void EmitTypeOf([NotNull] this ILGenerator il, [NotNull] Type type)
+        {
+            il.EmitLoadToken(type);
+            il.EmitCallDirect<Type>(nameof(Type.GetTypeFromHandle), typeof(RuntimeTypeHandle));
+        }
     }
 }
