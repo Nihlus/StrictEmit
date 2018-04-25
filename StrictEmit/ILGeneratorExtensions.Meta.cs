@@ -52,7 +52,7 @@ namespace StrictEmit
         public static void EmitGetCurrentMethodParameterByIndex([NotNull] this ILGenerator il, int parameterIndex)
         {
             il.EmitCallDirect<MethodBase>(nameof(MethodBase.GetCurrentMethod));
-            il.EmitCallVirtual<MethodBase>(nameof(MethodBase.GetParameters), typeof(MethodBase));
+            il.EmitCallVirtual<MethodBase>(nameof(MethodBase.GetParameters));
             il.EmitConstantInt(parameterIndex);
             il.EmitLoadArrayElement(typeof(MethodBase));
         }
