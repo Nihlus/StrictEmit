@@ -163,7 +163,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="local">The local variable.</param>
         [PublicAPI]
-        public static void EmitLoadLocalVariable([NotNull] this ILGenerator il, LocalBuilder local)
+        public static void EmitLoadLocalVariable([NotNull] this ILGenerator il, [NotNull] LocalBuilder local)
             => il.Emit(OpCodes.Ldloc, local);
 
         /// <summary>
@@ -191,7 +191,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="local">The local variable.</param>
         [PublicAPI]
-        public static void EmitLoadLocalVariableAddress([NotNull] this ILGenerator il, LocalBuilder local)
+        public static void EmitLoadLocalVariableAddress([NotNull] this ILGenerator il, [NotNull] LocalBuilder local)
             => il.Emit(OpCodes.Ldloca, local);
 
         /// <summary>
@@ -324,7 +324,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="local">The local variable.</param>
         [PublicAPI]
-        public static void EmitSetLocalVariable([NotNull] this ILGenerator il, LocalBuilder local)
+        public static void EmitSetLocalVariable([NotNull] this ILGenerator il, [NotNull] LocalBuilder local)
             => il.Emit(OpCodes.Stloc, local);
 
         /// <summary>

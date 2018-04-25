@@ -84,7 +84,7 @@ namespace StrictEmit
         (
             [NotNull] this ILGenerator il,
             [NotNull] string functionName,
-            params Type[] parameterTypes
+            [NotNull] params Type[] parameterTypes
         )
         {
             var type = typeof(T);
@@ -111,7 +111,7 @@ namespace StrictEmit
         (
             [NotNull] this ILGenerator il,
             [NotNull] string functionName,
-            params Type[] parameterTypes
+            [NotNull] params Type[] parameterTypes
         )
         {
             var type = typeof(T);

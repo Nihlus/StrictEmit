@@ -145,7 +145,7 @@ namespace StrictEmit
         /// <param name="elementType">The element type.</param>
         /// <param name="elementCount">The number of elements in the array.</param>
         [PublicAPI]
-        public static void EmitNewArray(this ILGenerator il, Type elementType, int elementCount)
+        public static void EmitNewArray([NotNull] this ILGenerator il, [NotNull] Type elementType, int elementCount)
         {
             il.EmitConstantInt(elementCount);
             il.EmitNewArray(elementType);
@@ -159,7 +159,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="elementCount">The number of elements in the array.</param>
         [PublicAPI]
-        public static void EmitNewArray<T>(this ILGenerator il, int elementCount)
+        public static void EmitNewArray<T>([NotNull] this ILGenerator il, int elementCount)
             => il.EmitNewArray(typeof(T), elementCount);
 
         /// <summary>

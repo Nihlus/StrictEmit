@@ -51,7 +51,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="constructor">The constructor to use.</param>
         [PublicAPI]
-        public static void EmitNewObject([NotNull] this ILGenerator il, ConstructorInfo constructor)
+        public static void EmitNewObject([NotNull] this ILGenerator il, [NotNull] ConstructorInfo constructor)
             => il.Emit(OpCodes.Newobj, constructor);
 
         /// <summary>

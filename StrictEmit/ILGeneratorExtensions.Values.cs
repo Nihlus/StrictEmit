@@ -92,7 +92,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitInitBlock(this ILGenerator il) => il.Emit(OpCodes.Initblk);
+        public static void EmitInitBlock([NotNull] this ILGenerator il) => il.Emit(OpCodes.Initblk);
 
         /// <summary>
         /// Initializes each field of the value type at a specified address to a null reference or a 0 of the
@@ -101,7 +101,7 @@ namespace StrictEmit
         /// <typeparam name="T">The type.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitInitObject<T>(this ILGenerator il) => il.EmitInitObject(typeof(T));
+        public static void EmitInitObject<T>([NotNull] this ILGenerator il) => il.EmitInitObject(typeof(T));
 
         /// <summary>
         /// Initializes each field of the value type at a specified address to a null reference or a 0 of the
@@ -110,7 +110,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="objectType">The type.</param>
         [PublicAPI]
-        public static void EmitInitObject(this ILGenerator il, Type objectType) => il.Emit(OpCodes.Initobj, objectType);
+        public static void EmitInitObject([NotNull] this ILGenerator il, [NotNull] Type objectType) => il.Emit(OpCodes.Initobj, objectType);
 
         /// <summary>
         /// Pushes a supplied value onto the evaluation stack as an <strong>int32</strong>. This method will use the
@@ -229,7 +229,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="value">The string value.</param>
         [PublicAPI]
-        public static void EmitConstantString([NotNull] this ILGenerator il, string value)
+        public static void EmitConstantString([NotNull] this ILGenerator il, [NotNull] string value)
             => il.Emit(OpCodes.Ldstr, value);
 
         /// <summary>

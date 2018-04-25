@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "metadata", ".\", "{F1A57014
 	EndProjectSection
 EndProject
 
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "msbuild", ".\msbuild", "{F1A57014-71CE-4032-A652-01B7E35E14DB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "msbuild", ".\msbuild", "{1F056E04-1788-4B80-8736-FDBE38BAE01B}"
 	ProjectSection(SolutionItems) = preProject
 		msbuild/netfx-mono.props = msbuild/netfx-mono.props
 	EndProjectSection
