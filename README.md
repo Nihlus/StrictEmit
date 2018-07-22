@@ -1,5 +1,6 @@
 StrictEmit
 ==========
+[![Join the chat at https://discord.gg/fDy5Vhb](https://img.shields.io/badge/chat-on%20discord-7289DA.svg)](https://discord.gg/fDy5Vhb)
 
 StrictEmit is a small library that improves the API of the `ILGenerator` class, adding properly typed extensions and 
 overloads for every CIL instruction, along with inline XML documentation for them.
