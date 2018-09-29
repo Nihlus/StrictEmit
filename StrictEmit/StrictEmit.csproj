@@ -9,7 +9,7 @@
   <PropertyGroup>
     <Title>StrictEmit</Title>
     <Authors>Jax</Authors>
-    <Version>2.4.1</Version>
+    <Version>2.4.2</Version>
     <Description>Better, stricter ILGenerator.Emit</Description>
     <Copyright>Jarl Gullberg 2017</Copyright>
   </PropertyGroup>
@@ -25,9 +25,10 @@
     <RepositoryUrl>https://github.com/Nihlus/StrictEmit</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="StrictEmit.ExternalAnnotations.xml">
+    <AdditionalFiles Include="StrictEmit.ExternalAnnotations.xml">
+      <InProject>false</InProject>
       <CopyToOutputDirectory>CopyIfNewer</CopyToOutputDirectory>
-    </Content>
+    </AdditionalFiles>
   </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="$(ProjectDir)\..\stylecop.json">
