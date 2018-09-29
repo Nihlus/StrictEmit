@@ -48,6 +48,28 @@ namespace StrictEmit
         /// Creates a new object or a new instance of a value type, pushing an object reference
         /// (type <strong>O</strong>) onto the evaluation stack.
         /// </summary>
+        /// <typeparam name="T">The type.</typeparam>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="parameterTypes">The parameter types that the constructor accepts.</param>
+        [PublicAPI]
+        public static void EmitNewObject<T>([NotNull] this ILGenerator il, params Type[] parameterTypes)
+        {
+            var constructor = typeof(T).GetConstructor(parameterTypes);
+            if (constructor is null)
+            {
+                throw new ArgumentException
+                (
+                    $"The type {typeof(T).Name} does not contain a constructor with those parameter types."
+                );
+            }
+
+            il.EmitNewObject(constructor);
+        }
+
+        /// <summary>
+        /// Creates a new object or a new instance of a value type, pushing an object reference
+        /// (type <strong>O</strong>) onto the evaluation stack.
+        /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="constructor">The constructor to use.</param>
         [PublicAPI]
