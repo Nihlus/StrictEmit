@@ -172,6 +172,6 @@ namespace StrictEmit
             [NotNull] string propertyName,
             BindingFlags flags
         )
-        => EmitGetProperty(il, typeof(T), propertyName);
+        => EmitGetProperty(il, typeof(T), propertyName, flags);
     }
 }

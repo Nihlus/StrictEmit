@@ -1115,14 +1115,6 @@
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="type">The type to create a reference to.<p /><c>[NotNull]</c></param>
         </member>
-        <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetProperty(System.Reflection.Emit.ILGenerator,System.Type,System.String)">
-            <summary>
-            Pops the value on the evaluation stack, setting the named property's value to it.
-            <p /><c>[PublicAPI]</c></summary>
-            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
-            <param name="containingType">The type in which the property is defined.<p /><c>[NotNull]</c></param>
-            <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
-        </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetProperty(System.Reflection.Emit.ILGenerator,System.Type,System.String,System.Reflection.BindingFlags)">
             <summary>
             Pops the value on the evaluation stack, setting the named property's value to it.
@@ -1132,6 +1124,14 @@
             <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
             <param name="flags">The binding flags to use.</param>
         </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetProperty(System.Reflection.Emit.ILGenerator,System.Type,System.String)">
+            <summary>
+            Pops the value on the evaluation stack, setting the named property's value to it.
+            <p /><c>[PublicAPI]</c></summary>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="containingType">The type in which the property is defined.<p /><c>[NotNull]</c></param>
+            <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
+        </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetProperty``1(System.Reflection.Emit.ILGenerator,System.String)">
             <summary>
             Pops the value on the evaluation stack, setting the named property's value to it.
@@ -1140,13 +1140,14 @@
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
         </member>
-        <member name="M:StrictEmit.ILGeneratorExtensions.EmitGetProperty(System.Reflection.Emit.ILGenerator,System.Type,System.String)">
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetProperty``1(System.Reflection.Emit.ILGenerator,System.String,System.Reflection.BindingFlags)">
             <summary>
-            Gets the value of the named property, placing it onto the evaluation stack.
+            Pops the value on the evaluation stack, setting the named property's value to it.
             <p /><c>[PublicAPI]</c></summary>
+            <typeparam name="T">The type in which the property is defined.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
-            <param name="containingType">The type in which the property is defined.<p /><c>[NotNull]</c></param>
             <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
+            <param name="flags">The binding flags to use.</param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitGetProperty(System.Reflection.Emit.ILGenerator,System.Type,System.String,System.Reflection.BindingFlags)">
             <summary>
@@ -1157,6 +1158,14 @@
             <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
             <param name="flags">The binding flags to use.</param>
         </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitGetProperty(System.Reflection.Emit.ILGenerator,System.Type,System.String)">
+            <summary>
+            Gets the value of the named property, placing it onto the evaluation stack.
+            <p /><c>[PublicAPI]</c></summary>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="containingType">The type in which the property is defined.<p /><c>[NotNull]</c></param>
+            <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
+        </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitGetProperty``1(System.Reflection.Emit.ILGenerator,System.String)">
             <summary>
             Gets the value of the named property, placing it onto the evaluation stack.
@@ -1164,6 +1173,15 @@
             <typeparam name="T">The type in which the property is defined.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitGetProperty``1(System.Reflection.Emit.ILGenerator,System.String,System.Reflection.BindingFlags)">
+            <summary>
+            Gets the value of the named property, placing it onto the evaluation stack.
+            <p /><c>[PublicAPI]</c></summary>
+            <typeparam name="T">The type in which the property is defined.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
+            <param name="flags">The binding flags to use.</param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitBreakpoint(System.Reflection.Emit.ILGenerator)">
             <summary>
