@@ -32,37 +32,6 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="containingType">The type in which the property is defined.</param>
         /// <param name="propertyName">The name of the property.</param>
-        [PublicAPI]
-        public static void EmitSetProperty
-        (
-            [NotNull] this ILGenerator il,
-            [NotNull] Type containingType,
-            [NotNull] string propertyName
-        )
-        {
-            var property = containingType.GetProperty(propertyName);
-            if (property is null)
-            {
-                throw new ArgumentException
-                (
-                    $"The type {containingType.Name} did not contain a property with that name."
-                );
-            }
-
-            if (!property.CanWrite)
-            {
-                throw new ArgumentException($"The property \"{property.Name}\" doesn't have a setter.");
-            }
-
-            il.EmitCallDirect(property.SetMethod);
-        }
-
-        /// <summary>
-        /// Pops the value on the evaluation stack, setting the named property's value to it.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="containingType">The type in which the property is defined.</param>
-        /// <param name="propertyName">The name of the property.</param>
         /// <param name="flags">The binding flags to use.</param>
         [PublicAPI]
         public static void EmitSetProperty
@@ -89,6 +58,21 @@ namespace StrictEmit
 
             il.EmitCallDirect(property.SetMethod);
         }
+
+        /// <summary>
+        /// Pops the value on the evaluation stack, setting the named property's value to it.
+        /// </summary>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="containingType">The type in which the property is defined.</param>
+        /// <param name="propertyName">The name of the property.</param>
+        [PublicAPI]
+        public static void EmitSetProperty
+        (
+            [NotNull] this ILGenerator il,
+            [NotNull] Type containingType,
+            [NotNull] string propertyName
+        )
+        => il.EmitSetProperty(containingType, propertyName, BindingFlags.Default);
 
         /// <summary>
         /// Pops the value on the evaluation stack, setting the named property's value to it.
@@ -101,35 +85,20 @@ namespace StrictEmit
             => EmitSetProperty(il, typeof(T), propertyName);
 
         /// <summary>
-        /// Gets the value of the named property, placing it onto the evaluation stack.
+        /// Pops the value on the evaluation stack, setting the named property's value to it.
         /// </summary>
+        /// <typeparam name="T">The type in which the property is defined.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="containingType">The type in which the property is defined.</param>
         /// <param name="propertyName">The name of the property.</param>
+        /// <param name="flags">The binding flags to use.</param>
         [PublicAPI]
-        public static void EmitGetProperty
+        public static void EmitSetProperty<T>
         (
             [NotNull] this ILGenerator il,
-            [NotNull] Type containingType,
-            [NotNull] string propertyName
+            [NotNull] string propertyName,
+            BindingFlags flags
         )
-        {
-            var property = containingType.GetProperty(propertyName);
-            if (property is null)
-            {
-                throw new ArgumentException
-                (
-                    $"The type {containingType.Name} did not contain a property with that name."
-                );
-            }
-
-            if (!property.CanRead)
-            {
-                throw new ArgumentException($"The property \"{property.Name}\" doesn't have a getter.");
-            }
-
-            il.EmitCallDirect(property.GetMethod);
-        }
+        => EmitSetProperty(il, typeof(T), propertyName, flags);
 
         /// <summary>
         /// Gets the value of the named property, placing it onto the evaluation stack.
@@ -167,11 +136,42 @@ namespace StrictEmit
         /// <summary>
         /// Gets the value of the named property, placing it onto the evaluation stack.
         /// </summary>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="containingType">The type in which the property is defined.</param>
+        /// <param name="propertyName">The name of the property.</param>
+        [PublicAPI]
+        public static void EmitGetProperty
+        (
+            [NotNull] this ILGenerator il,
+            [NotNull] Type containingType,
+            [NotNull] string propertyName
+        )
+            => il.EmitGetProperty(containingType, propertyName, BindingFlags.Default);
+
+        /// <summary>
+        /// Gets the value of the named property, placing it onto the evaluation stack.
+        /// </summary>
         /// <typeparam name="T">The type in which the property is defined.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="propertyName">The name of the property.</param>
         [PublicAPI]
         public static void EmitGetProperty<T>([NotNull] this ILGenerator il, [NotNull] string propertyName)
             => EmitGetProperty(il, typeof(T), propertyName);
+
+        /// <summary>
+        /// Gets the value of the named property, placing it onto the evaluation stack.
+        /// </summary>
+        /// <typeparam name="T">The type in which the property is defined.</typeparam>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="propertyName">The name of the property.</param>
+        /// <param name="flags">The binding flags to use.</param>
+        [PublicAPI]
+        public static void EmitGetProperty<T>
+        (
+            [NotNull] this ILGenerator il,
+            [NotNull] string propertyName,
+            BindingFlags flags
+        )
+        => EmitGetProperty(il, typeof(T), propertyName);
     }
 }
