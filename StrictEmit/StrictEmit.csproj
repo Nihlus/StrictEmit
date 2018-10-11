@@ -9,7 +9,7 @@
   <PropertyGroup>
     <Title>StrictEmit</Title>
     <Authors>Jax</Authors>
-    <Version>2.5.0</Version>
+    <Version>2.6.0</Version>
     <Description>Better, stricter ILGenerator.Emit</Description>
     <Copyright>Jarl Gullberg 2017</Copyright>
   </PropertyGroup>
@@ -17,7 +17,7 @@
     <PackageId>StrictEmit</PackageId>
     <PackageLicenseUrl>https://www.gnu.org/licenses/gpl-3.0.en.html</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Add property convenience functions, and another generic convenience function.</PackageReleaseNotes>
+    <PackageReleaseNotes>Add property overloads that take BindingFlags.</PackageReleaseNotes>
     <PackageTags>emit;cil;cross-platform;mono;netcore;netstandard;netframework</PackageTags>
     <PackageOutputPath>../nuget</PackageOutputPath>
     <IncludeSymbols>True</IncludeSymbols>
