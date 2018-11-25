@@ -223,7 +223,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitEndFilter([NotNull] this ILGenerator il) => il.Emit(OpCodes.Endfilter);
+        public static void EmitEndFilter([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Endfilter);
 
         /// <summary>
         /// Transfers control from the <strong>fault</strong> or <strong>finally</strong> clause of an exception block
@@ -231,7 +232,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitEndFinally([NotNull] this ILGenerator il) => il.Emit(OpCodes.Endfinally);
+        public static void EmitEndFinally([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Endfinally);
 
         /// <summary>
         /// Unconditionally transfers control to a target instruction.
@@ -322,14 +324,16 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitReturn([NotNull] this ILGenerator il) => il.Emit(OpCodes.Ret);
+        public static void EmitReturn([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Ret);
 
         /// <summary>
         /// Rethrows the current exception.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitRethrow([NotNull] this ILGenerator il) => il.Emit(OpCodes.Rethrow);
+        public static void EmitRethrow([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Rethrow);
 
         /// <summary>
         /// Performs a postfixed method call instruction such that the current method's stack frame is removed before
@@ -337,14 +341,16 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitTailcall([NotNull] this ILGenerator il) => il.Emit(OpCodes.Tailcall);
+        public static void EmitTailcall([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Tailcall);
 
         /// <summary>
         /// Throws the exception object currently on the evaluation stack.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitThrow([NotNull] this ILGenerator il) => il.Emit(OpCodes.Throw);
+        public static void EmitThrow([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Throw);
 
         /// <summary>
         /// Implements a jump table.

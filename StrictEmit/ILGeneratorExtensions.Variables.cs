@@ -197,7 +197,7 @@ namespace StrictEmit
         /// <summary>
         /// Copies the value type object pointed to by an address to the top of the evaluation stack.
         /// </summary>
-        /// <typeparam name="T">The type.</typeparam>
+        /// <typeparam name="T">The type of object to load.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
         public static void EmitLoadObject<T>([NotNull] this ILGenerator il)
@@ -207,7 +207,7 @@ namespace StrictEmit
         /// Copies the value type object pointed to by an address to the top of the evaluation stack.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="valueType">The type.</param>
+        /// <param name="valueType">The type of object to load.</param>
         [PublicAPI]
         public static void EmitLoadObject([NotNull] this ILGenerator il, [NotNull] Type valueType)
             => il.Emit(OpCodes.Ldobj, valueType);
@@ -368,6 +368,7 @@ namespace StrictEmit
         /// <param name="pinned">true to pin the object in memory; otherwise, false.</param>
         /// <returns>The LocalBuilder declared with type T.</returns>
         [PublicAPI, NotNull]
-        public static LocalBuilder DeclareLocal<T>([NotNull] this ILGenerator il, bool pinned = false) => il.DeclareLocal(typeof(T), pinned);
+        public static LocalBuilder DeclareLocal<T>([NotNull] this ILGenerator il, bool pinned = false)
+            => il.DeclareLocal(typeof(T), pinned);
     }
 }

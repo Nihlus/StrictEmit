@@ -268,8 +268,17 @@ namespace StrictEmit
         /// <summary>
         /// Attempts to cast an object passed by reference to the specified class.
         /// </summary>
+        /// <typeparam name="T">The type to cast the highest item on the stack to.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="classType">The type.</param>
+        [PublicAPI]
+        public static void EmitCastClass<T>([NotNull] this ILGenerator il)
+            => il.EmitCastClass(typeof(T));
+
+        /// <summary>
+        /// Attempts to cast an object passed by reference to the specified class.
+        /// </summary>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="classType">The type to cast the highest item on the stack to.</param>
         [PublicAPI]
         public static void EmitCastClass([NotNull] this ILGenerator il, [NotNull] Type classType)
             => il.Emit(OpCodes.Castclass, classType);
@@ -277,8 +286,17 @@ namespace StrictEmit
         /// <summary>
         /// Constrains the type on which a virtual method call is made.
         /// </summary>
+        /// <typeparam name="T">The type in which the method exists.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="typeToConstrainTo">The type.</param>
+        [PublicAPI]
+        public static void EmitCallVirtualConstrainedPrefix<T>([NotNull] this ILGenerator il)
+            => il.EmitCallVirtualConstrainedPrefix(typeof(T));
+
+        /// <summary>
+        /// Constrains the type on which a virtual method call is made.
+        /// </summary>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        /// <param name="typeToConstrainTo">The type in which the method exists.</param>
         [PublicAPI]
         public static void EmitCallVirtualConstrainedPrefix([NotNull] this ILGenerator il, [NotNull] Type typeToConstrainTo)
             => il.Emit(OpCodes.Constrained, typeToConstrainTo);
@@ -309,6 +327,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitVolatilePrefix([NotNull] this ILGenerator il) => il.Emit(OpCodes.Volatile);
+        public static void EmitVolatilePrefix([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Volatile);
     }
 }

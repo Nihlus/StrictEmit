@@ -33,7 +33,8 @@ namespace StrictEmit
         /// <typeparam name="T">The type of the object to store.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitSet<T>([NotNull] this ILGenerator il) => il.EmitSet(typeof(T));
+        public static void EmitSet<T>([NotNull] this ILGenerator il)
+            => il.EmitSet(typeof(T));
 
         /// <summary>
         /// Stores a value or an object reference at a supplied address.
@@ -103,7 +104,8 @@ namespace StrictEmit
         /// <typeparam name="T">The type.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitDereferencePointer<T>([NotNull] this ILGenerator il) => il.EmitLoad<T>();
+        public static void EmitDereferencePointer<T>([NotNull] this ILGenerator il)
+            => il.EmitLoad<T>();
 
         /// <summary>
         /// Loads a value or object reference of the given type as a <strong>native int</strong> onto the evaluation
@@ -112,8 +114,8 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="typeToDereference">The type.</param>
         [PublicAPI]
-        public static void EmitDereferencePointer([NotNull] this ILGenerator il, [NotNull] Type typeToDereference) =>
-            il.EmitLoad(typeToDereference);
+        public static void EmitDereferencePointer([NotNull] this ILGenerator il, [NotNull] Type typeToDereference)
+            => il.EmitLoad(typeToDereference);
 
         /// <summary>
         /// Loads a value or object reference of the given type as a <strong>native int</strong> onto the evaluation
@@ -122,7 +124,8 @@ namespace StrictEmit
         /// <typeparam name="T">The type.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitLoad<T>([NotNull] this ILGenerator il) => il.EmitLoad(typeof(T));
+        public static void EmitLoad<T>([NotNull] this ILGenerator il)
+            => il.EmitLoad(typeof(T));
 
         /// <summary>
         /// Loads a value or object reference of the given type as a <strong>native int</strong> onto the evaluation
@@ -202,7 +205,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitRefAnyType([NotNull] this ILGenerator il) => il.Emit(OpCodes.Refanytype);
+        public static void EmitRefAnyType([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Refanytype);
 
         /// <summary>
         /// Retrieves the address (type <strong>&amp;</strong>) embedded in a typed reference.
@@ -210,7 +214,8 @@ namespace StrictEmit
         /// <typeparam name="T">The type.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitRefAnyVal<T>([NotNull] this ILGenerator il) => il.EmitRefAnyVal(typeof(T));
+        public static void EmitRefAnyVal<T>([NotNull] this ILGenerator il)
+            => il.EmitRefAnyVal(typeof(T));
 
         /// <summary>
         /// Retrieves the address (type <strong>&amp;</strong>) embedded in a typed reference.
@@ -227,7 +232,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitLocalAllocateBytes([NotNull] this ILGenerator il) => il.Emit(OpCodes.Localloc);
+        public static void EmitLocalAllocateBytes([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Localloc);
 
         /// <summary>
         /// Pushes a typed reference to an instance of a specific type onto the evaluation stack.
