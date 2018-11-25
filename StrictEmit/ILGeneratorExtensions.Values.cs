@@ -274,7 +274,7 @@ namespace StrictEmit
         /// Converts a <see cref="Type"/> token to its runtime representation, pushing it onto the evaluation stack.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="type">The type to convert to it's runtime representation.</param>
+        /// <param name="type">The type to convert to its runtime representation.</param>
         [PublicAPI]
         public static void EmitLoadToken([NotNull] this ILGenerator il, [NotNull] Type type)
             => il.Emit(OpCodes.Ldtoken, type);

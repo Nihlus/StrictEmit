@@ -30,7 +30,7 @@ namespace StrictEmit
         /// Creates a new object or a new instance of a value type, pushing an object reference
         /// (type <strong>O</strong>) onto the evaluation stack.
         /// </summary>
-        /// <typeparam name="T">The type of object to emit.</typeparam>
+        /// <typeparam name="T">The type of object to create an instance of.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
         public static void EmitNewObject<T>([NotNull] this ILGenerator il)
@@ -48,7 +48,7 @@ namespace StrictEmit
         /// Creates a new object or a new instance of a value type, pushing an object reference
         /// (type <strong>O</strong>) onto the evaluation stack.
         /// </summary>
-        /// <typeparam name="T">The type of object to emit.</typeparam>
+        /// <typeparam name="T">The type of object to create an instance of.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="parameterTypes">The parameter types that the constructor accepts.</param>
         [PublicAPI]
@@ -97,7 +97,7 @@ namespace StrictEmit
         /// <summary>
         /// Tests whether an object reference (type <strong>O</strong>) is an instance of a particular class.
         /// </summary>
-        /// <typeparam name="T">The type to emit the instance of instruction.</typeparam>
+        /// <typeparam name="T">The object type to test against.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
         public static void EmitIsInstance<T>([NotNull] this ILGenerator il)
@@ -107,7 +107,7 @@ namespace StrictEmit
         /// Tests whether an object reference (type <strong>O</strong>) is an instance of a particular class.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="typeToCheck">The type of object to emit if it is an instance of.</param>
+        /// <param name="typeToCheck">The object type to test against.</param>
         [PublicAPI]
         public static void EmitIsInstance([NotNull] this ILGenerator il, [NotNull] Type typeToCheck)
             => il.Emit(OpCodes.Isinst, typeToCheck);

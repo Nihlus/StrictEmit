@@ -53,7 +53,7 @@ namespace StrictEmit
         /// <summary>
         /// Pushes the size, in bytes, of a supplied value type onto the evaluation stack.
         /// </summary>
-        /// <typeparam name="T">The type to emit the size of in bytes.</typeparam>
+        /// <typeparam name="T">The type to calculate the size of.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
         public static void EmitSizeOf<T>([NotNull] this ILGenerator il)
@@ -63,7 +63,7 @@ namespace StrictEmit
         /// Pushes the size, in bytes, of a supplied value type onto the evaluation stack.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="type">The type to emit the size of in bytes.</param>
+        /// <param name="type">The type to calculate the size of.</param>
         [PublicAPI]
         public static void EmitSizeOf([NotNull] this ILGenerator il, [NotNull] Type type)
             => il.Emit(OpCodes.Sizeof, type);

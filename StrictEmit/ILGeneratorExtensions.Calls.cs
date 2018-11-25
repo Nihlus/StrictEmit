@@ -268,7 +268,7 @@ namespace StrictEmit
         /// <summary>
         /// Attempts to cast an object passed by reference to the specified class.
         /// </summary>
-        /// <typeparam name="T">The type to cast the highest item on the stack to.</typeparam>
+        /// <typeparam name="T">The type to cast the item on the top of the stack to.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
         public static void EmitCastClass<T>([NotNull] this ILGenerator il)
@@ -278,7 +278,7 @@ namespace StrictEmit
         /// Attempts to cast an object passed by reference to the specified class.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="classType">The type to cast the highest item on the stack to.</param>
+        /// <param name="classType">The type to cast the item on the top of the stack to.</param>
         [PublicAPI]
         public static void EmitCastClass([NotNull] this ILGenerator il, [NotNull] Type classType)
             => il.Emit(OpCodes.Castclass, classType);
