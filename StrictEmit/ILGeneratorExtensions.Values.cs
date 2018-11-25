@@ -300,7 +300,7 @@ namespace StrictEmit
         /// <summary>
         /// Converts the boxed representation of a type specified in the instruction to its unboxed form.
         /// </summary>
-        /// <typeparam name="T">The type to unbpx.</typeparam>
+        /// <typeparam name="T">The type to unbox.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
         public static void EmitUnboxAny<T>([NotNull] this ILGenerator il)

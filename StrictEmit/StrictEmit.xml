@@ -1411,7 +1411,7 @@
             <summary>
             Converts the boxed representation of a type specified in the instruction to its unboxed form.
             <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The type to unbpx.</typeparam>
+            <typeparam name="T">The type to unbox.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitUnboxAny(System.Reflection.Emit.ILGenerator,System.Type)">
