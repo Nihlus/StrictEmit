@@ -31,6 +31,6 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the local is to be declared.</param>
         [PublicAPI]
-        public static void DeclareLocal<T>([NotNull] this ILGenerator il) => il.DeclareLocal(typeof(T));
+        public static LocalBuilder DeclareLocal<T>([NotNull] this ILGenerator il) => il.DeclareLocal(typeof(T));
     }
 }
