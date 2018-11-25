@@ -359,5 +359,15 @@ namespace StrictEmit
         [PublicAPI]
         public static void EmitUnalignedPrefix([NotNull] this ILGenerator il, byte offset)
             => il.Emit(OpCodes.Unaligned, offset);
+
+        /// <summary>
+        /// Declares a local of type T.
+        /// </summary>
+        /// <typeparam name="T">The type of the newly generated local.</typeparam>
+        /// <param name="il">The generator where the local is to be declared.</param>
+        /// <param name="pinned">true to pin the object in memory; otherwise false.</param>
+        /// <returns>The LocalBuilder declared with type T.</returns>
+        [PublicAPI, NotNull]
+        public static LocalBuilder DeclareLocal<T>([NotNull] this ILGenerator il, bool pinned = false) => il.DeclareLocal(typeof(T), pinned);
     }
 }

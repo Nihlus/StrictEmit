@@ -775,23 +775,6 @@
             <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
-        <member name="M:StrictEmit.ILGeneratorExtensions.DeclareLocal``1(System.Reflection.Emit.ILGenerator)">
-            <summary>
-            Declares a local of type T.
-            <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The type.</typeparam>
-            <param name="il">The generator where the local is to be declared.<p /><c>[NotNull]</c></param>
-            <returns>The LocalBuilder declared with type T</returns>
-        </member>
-        <member name="M:StrictEmit.ILGeneratorExtensions.DeclareLocal``1(System.Reflection.Emit.ILGenerator,System.Boolean)">
-            <summary>
-            Declares a local of type T.
-            <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The type.</typeparam>
-            <param name="il">The generator where the local is to be declared.<p /><c>[NotNull]</c></param>
-            <param name="pinned">true to pin the object in memory; otherwise false</param>
-            <returns>The LocalBuilder declared with type T</returns>
-        </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitAdd(System.Reflection.Emit.ILGenerator)">
             <summary>
             Adds two values and pushes the result onto the evaluation stack.
@@ -1056,7 +1039,7 @@
             <summary>
             Stores a value or an object reference at a supplied address.
             <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The type.</typeparam>
+            <typeparam name="T">The type of the object to store.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitSet(System.Reflection.Emit.ILGenerator,System.Type)">
@@ -1553,6 +1536,15 @@
             <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="offset">The instruction offset.</param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.DeclareLocal``1(System.Reflection.Emit.ILGenerator,System.Boolean)">
+            <summary>
+            Declares a local of type T.
+            <p /><c>[PublicAPI, NotNull]</c></summary>
+            <typeparam name="T">The type of the newly generated local.</typeparam>
+            <param name="il">The generator where the local is to be declared.<p /><c>[NotNull]</c></param>
+            <param name="pinned">true to pin the object in memory; otherwise false.</param>
+            <returns>The LocalBuilder declared with type T.</returns>
         </member>
     </members>
 </doc>
