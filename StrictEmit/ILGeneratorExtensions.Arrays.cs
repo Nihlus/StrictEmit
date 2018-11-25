@@ -31,10 +31,11 @@ namespace StrictEmit
         /// Loads the element at a specified array index onto the top of the evaluation stack as the specified type, or
         /// as an object reference.
         /// </summary>
-        /// <typeparam name="T">The type.</typeparam>
+        /// <typeparam name="T">The element type of the array.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitLoadArrayElement<T>([NotNull] this ILGenerator il) => il.EmitLoadArrayElement(typeof(T));
+        public static void EmitLoadArrayElement<T>([NotNull] this ILGenerator il)
+            => il.EmitLoadArrayElement(typeof(T));
 
         /// <summary>
         /// Loads the element at a specified array index onto the top of the evaluation stack as the specified type, or
@@ -114,7 +115,7 @@ namespace StrictEmit
         /// Loads the address of the array element at a specified array index onto the top of the evaluation stack as
         /// type <strong>&amp;</strong> (managed pointer).
         /// </summary>
-        /// <typeparam name="T">The type.</typeparam>
+        /// <typeparam name="T">The element type of the array.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
         public static void EmitLoadArrayElementAddress<T>([NotNull] this ILGenerator il)
@@ -135,14 +136,15 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitLoadArrayLength([NotNull] this ILGenerator il) => il.Emit(OpCodes.Ldlen);
+        public static void EmitLoadArrayLength([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Ldlen);
 
         /// <summary>
         /// Pushes an object reference to a new zero-based, one-dimensional array of the given length whose elements are
         /// of a specific type onto the evaluation stack.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="elementType">The element type.</param>
+        /// <param name="elementType">The element type of the array.</param>
         /// <param name="elementCount">The number of elements in the array.</param>
         [PublicAPI]
         public static void EmitNewArray([NotNull] this ILGenerator il, [NotNull] Type elementType, int elementCount)
@@ -155,7 +157,7 @@ namespace StrictEmit
         /// Pushes an object reference to a new zero-based, one-dimensional array of the given length whose elements are
         /// of a specific type onto the evaluation stack.
         /// </summary>
-        /// <typeparam name="T">The element type.</typeparam>
+        /// <typeparam name="T">The element type of the array.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="elementCount">The number of elements in the array.</param>
         [PublicAPI]
@@ -166,10 +168,11 @@ namespace StrictEmit
         /// Pushes an object reference to a new zero-based, one-dimensional array whose elements are of a specific type
         /// onto the evaluation stack.
         /// </summary>
-        /// <typeparam name="T">The type.</typeparam>
+        /// <typeparam name="T">The element type of the array.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitNewArray<T>([NotNull] this ILGenerator il) => il.EmitNewArray(typeof(T));
+        public static void EmitNewArray<T>([NotNull] this ILGenerator il)
+            => il.EmitNewArray(typeof(T));
 
         /// <summary>
         /// Pushes an object reference to a new zero-based, one-dimensional array whose elements are of a specific type
@@ -186,10 +189,11 @@ namespace StrictEmit
         /// whose type is specified in the instruction. This method will use the appropriate type-optimized instruction,
         /// if applicable.
         /// </summary>
-        /// <typeparam name="T">The type.</typeparam>
+        /// <typeparam name="T">The element type of the array.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitSetArrayElement<T>([NotNull] this ILGenerator il) => il.EmitSetArrayElement(typeof(T));
+        public static void EmitSetArrayElement<T>([NotNull] this ILGenerator il)
+            => il.EmitSetArrayElement(typeof(T));
 
         /// <summary>
         /// Replaces the array element at a given index with the value or object ref valueon the evaluation stack,
@@ -197,7 +201,7 @@ namespace StrictEmit
         /// if applicable.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="arrayElementType">The type of the array elements.</param>
+        /// <param name="arrayElementType">The element type of the array.</param>
         [PublicAPI]
         public static void EmitSetArrayElement([NotNull] this ILGenerator il, [NotNull] Type arrayElementType)
         {
