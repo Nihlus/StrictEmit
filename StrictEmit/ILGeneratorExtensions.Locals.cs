@@ -34,5 +34,15 @@ namespace StrictEmit
         /// <returns>The LocalBuilder declared with type T</returns>
         [PublicAPI]
         public static LocalBuilder DeclareLocal<T>([NotNull] this ILGenerator il) => il.DeclareLocal(typeof(T));
+
+        /// <summary>
+        /// Declares a local of type T.
+        /// </summary>
+        /// <typeparam name="T">The type.</typeparam>
+        /// <param name="il">The generator where the local is to be declared.</param>
+        /// <param name="pinned">true to pin the object in memory; otherwise false</param>
+        /// <returns>The LocalBuilder declared with type T</returns>
+        [PublicAPI]
+        public static LocalBuilder DeclareLocal<T>([NotNull] this ILGenerator il, bool pinned) => il.DeclareLocal(typeof(T), pinned);
     }
 }
