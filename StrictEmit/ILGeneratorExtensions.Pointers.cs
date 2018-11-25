@@ -27,12 +27,11 @@ namespace StrictEmit
 {
     public static partial class ILGeneratorExtensions
     {
-
         /// <summary>
         /// Stores a value or an object reference at a supplied address.
         /// </summary>
+        /// <typeparam name="T">The type.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="type">The type of the object to store.</param>
         [PublicAPI]
         public static void EmitSet<T>([NotNull] this ILGenerator il) => il.EmitSet(typeof(T));
 
