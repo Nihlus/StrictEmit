@@ -160,11 +160,15 @@ namespace StrictEmit
         /// <summary>
         /// Loads the specified local variable onto the evaluation stack.
         /// </summary>
+        /// <remarks>
+        /// The <see cref="LocalBuilder.LocalIndex"/> is used instead of the <see cref="LocalBuilder"/> itself in order to take
+        /// advantage of the optimized instructions in <see cref="EmitLoadLocalVariable(ILGenerator, short)"/>
+        /// </remarks>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="local">The local variable.</param>
         [PublicAPI]
         public static void EmitLoadLocalVariable([NotNull] this ILGenerator il, [NotNull] LocalBuilder local)
-            => il.Emit(OpCodes.Ldloc, local);
+            => il.EmitLoadLocalVariable((short)local.LocalIndex);
 
         /// <summary>
         /// Loads the address of the local variable at a specific index onto the evaluation stack. This method will use
@@ -173,7 +177,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="localIndex">The index of the variable.</param>
         [PublicAPI]
-        public static void EmitLoadLocalVariableAddress([NotNull] this ILGenerator il, int localIndex)
+        public static void EmitLoadLocalVariableAddress([NotNull] this ILGenerator il, short localIndex)
         {
             if (localIndex >= 0 && localIndex <= 255)
             {
@@ -188,11 +192,15 @@ namespace StrictEmit
         /// <summary>
         /// Loads the address of the local variable at a specific index onto the evaluation stack.
         /// </summary>
+        /// <remarks>
+        /// The <see cref="LocalBuilder.LocalIndex"/> is used instead of the <see cref="LocalBuilder"/> itself in order to take
+        /// advantage of the optimized instructions in <see cref="EmitLoadLocalVariableAddress(ILGenerator, short)"/>
+        /// </remarks>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="local">The local variable.</param>
         [PublicAPI]
         public static void EmitLoadLocalVariableAddress([NotNull] this ILGenerator il, [NotNull] LocalBuilder local)
-            => il.Emit(OpCodes.Ldloca, local);
+            => il.EmitLoadLocalVariableAddress((short)local.LocalIndex);
 
         /// <summary>
         /// Copies the value type object pointed to by an address to the top of the evaluation stack.
@@ -321,11 +329,15 @@ namespace StrictEmit
         /// <summary>
         /// Pops the current value from the top of the evaluation stack and stores it in the specified local variable.
         /// </summary>
+        /// <remarks>
+        /// The <see cref="LocalBuilder.LocalIndex"/> is used instead of the <see cref="LocalBuilder"/> itself in order to take
+        /// advantage of the optimized instructions in <see cref="EmitSetLocalVariable(ILGenerator, short)"/>
+        /// </remarks>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="local">The local variable.</param>
         [PublicAPI]
         public static void EmitSetLocalVariable([NotNull] this ILGenerator il, [NotNull] LocalBuilder local)
-            => il.Emit(OpCodes.Stloc, local);
+            => il.EmitSetLocalVariable((short)local.LocalIndex);
 
         /// <summary>
         /// Replaces the value of a static field with a value from the evaluation stack.
