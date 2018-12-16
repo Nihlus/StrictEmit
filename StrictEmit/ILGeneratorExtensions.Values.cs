@@ -191,7 +191,7 @@ namespace StrictEmit
                 }
                 default:
                 {
-                    if (value >= 4 && value <= 255)
+                    if (value > 8 && value <= 255)
                     {
                         il.Emit(OpCodes.Ldc_I4_S, (byte)value);
                     }

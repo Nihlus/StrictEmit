@@ -61,7 +61,7 @@ namespace StrictEmit
                 }
                 default:
                 {
-                    if (argumentIndex >= 4 && argumentIndex <= 255)
+                    if (argumentIndex > 3 && argumentIndex <= 255)
                     {
                         il.Emit(OpCodes.Ldarg_S, (byte)argumentIndex);
                     }
@@ -83,7 +83,7 @@ namespace StrictEmit
         [PublicAPI]
         public static void EmitLoadArgumentAddress([NotNull] this ILGenerator il, short argumentIndex)
         {
-            if (argumentIndex >= 4 && argumentIndex <= 255)
+            if (argumentIndex >= 0 && argumentIndex <= 255)
             {
                 il.Emit(OpCodes.Ldarga_S, (byte)argumentIndex);
             }
@@ -144,7 +144,7 @@ namespace StrictEmit
                 }
                 default:
                 {
-                    if (localIndex >= 4 && localIndex <= 255)
+                    if (localIndex > 3 && localIndex <= 255)
                     {
                         il.Emit(OpCodes.Ldloc_S, (byte)localIndex);
                     }
@@ -175,7 +175,7 @@ namespace StrictEmit
         [PublicAPI]
         public static void EmitLoadLocalVariableAddress([NotNull] this ILGenerator il, int localIndex)
         {
-            if (localIndex >= 4 && localIndex <= 255)
+            if (localIndex >= 0 && localIndex <= 255)
             {
                 il.Emit(OpCodes.Ldloca_S, (byte)localIndex);
             }
@@ -253,7 +253,7 @@ namespace StrictEmit
         [PublicAPI]
         public static void EmitStoreArgument([NotNull] this ILGenerator il, short argumentIndex)
         {
-            if (argumentIndex >= 4 && argumentIndex <= 255)
+            if (argumentIndex >= 0 && argumentIndex <= 255)
             {
                 il.Emit(OpCodes.Starg_S, (byte)argumentIndex);
             }
@@ -305,7 +305,7 @@ namespace StrictEmit
                 }
                 default:
                 {
-                    if (localIndex >= 4 && localIndex <= 255)
+                    if (localIndex > 3 && localIndex <= 255)
                     {
                         il.Emit(OpCodes.Stloc_S, (byte)localIndex);
                     }
