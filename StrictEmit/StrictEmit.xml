@@ -1463,10 +1463,14 @@
             <summary>
             Loads the specified local variable onto the evaluation stack.
             <p /><c>[PublicAPI]</c></summary>
+            <remarks>
+            The <see cref="P:System.Reflection.Emit.LocalBuilder.LocalIndex" /> is used instead of the <see cref="T:System.Reflection.Emit.LocalBuilder" /> itself in order to take
+            advantage of the optimized instructions in <see cref="M:StrictEmit.ILGeneratorExtensions.EmitLoadLocalVariable(System.Reflection.Emit.ILGenerator,System.Int16)" />
+            </remarks>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="local">The local variable.<p /><c>[NotNull]</c></param>
         </member>
-        <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadLocalVariableAddress(System.Reflection.Emit.ILGenerator,System.Int32)">
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadLocalVariableAddress(System.Reflection.Emit.ILGenerator,System.Int16)">
             <summary>
             Loads the address of the local variable at a specific index onto the evaluation stack. This method will use
             the appropriate short-optimized instruction, if applicable.
@@ -1478,6 +1482,10 @@
             <summary>
             Loads the address of the local variable at a specific index onto the evaluation stack.
             <p /><c>[PublicAPI]</c></summary>
+            <remarks>
+            The <see cref="P:System.Reflection.Emit.LocalBuilder.LocalIndex" /> is used instead of the <see cref="T:System.Reflection.Emit.LocalBuilder" /> itself in order to take
+            advantage of the optimized instructions in <see cref="M:StrictEmit.ILGeneratorExtensions.EmitLoadLocalVariableAddress(System.Reflection.Emit.ILGenerator,System.Int16)" />
+            </remarks>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="local">The local variable.<p /><c>[NotNull]</c></param>
         </member>
@@ -1536,6 +1544,10 @@
             <summary>
             Pops the current value from the top of the evaluation stack and stores it in the specified local variable.
             <p /><c>[PublicAPI]</c></summary>
+            <remarks>
+            The <see cref="P:System.Reflection.Emit.LocalBuilder.LocalIndex" /> is used instead of the <see cref="T:System.Reflection.Emit.LocalBuilder" /> itself in order to take
+            advantage of the optimized instructions in <see cref="M:StrictEmit.ILGeneratorExtensions.EmitSetLocalVariable(System.Reflection.Emit.ILGenerator,System.Int16)" />
+            </remarks>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="local">The local variable.<p /><c>[NotNull]</c></param>
         </member>
