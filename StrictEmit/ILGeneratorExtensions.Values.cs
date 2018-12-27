@@ -33,13 +33,23 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitGetArglistPointer([NotNull] this ILGenerator il) => il.Emit(OpCodes.Arglist);
+        public static void EmitGetArglistPointer([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Arglist);
+
+        /// <summary>
+        /// Converts a value type to an object reference (type <strong>O</strong>).
+        /// </summary>
+        /// <typeparam name="T">The type to box into an object reference.</typeparam>
+        /// <param name="il">The generator where the IL is to be emitted.</param>
+        [PublicAPI]
+        public static void EmitBox<T>([NotNull] this ILGenerator il)
+            => il.EmitBox(typeof(T));
 
         /// <summary>
         /// Converts a value type to an object reference (type <strong>O</strong>).
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="typeToBox">The type.</param>
+        /// <param name="typeToBox">The type to box into an object reference.</param>
         [PublicAPI]
         public static void EmitBox([NotNull] this ILGenerator il, [NotNull] Type typeToBox)
         {
@@ -56,7 +66,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitCopyBlock([NotNull] this ILGenerator il) => il.Emit(OpCodes.Cpblk);
+        public static void EmitCopyBlock([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Cpblk);
 
         /// <summary>
         /// Copies the value type located at the address of an object (type <strong>&amp;</strong>, <strong>*</strong>
@@ -66,7 +77,8 @@ namespace StrictEmit
         /// <typeparam name="T">The type.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitCopyObject<T>([NotNull] this ILGenerator il) => il.EmitCopyObject(typeof(T));
+        public static void EmitCopyObject<T>([NotNull] this ILGenerator il)
+            => il.EmitCopyObject(typeof(T));
 
         /// <summary>
         /// Copies the value type located at the address of an object (type <strong>&amp;</strong>, <strong>*</strong>
@@ -85,14 +97,16 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitDuplicate([NotNull] this ILGenerator il) => il.Emit(OpCodes.Dup);
+        public static void EmitDuplicate([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Dup);
 
         /// <summary>
         /// Initializes a specified block of memory at a specific address to a given size and initial value.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitInitBlock([NotNull] this ILGenerator il) => il.Emit(OpCodes.Initblk);
+        public static void EmitInitBlock([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Initblk);
 
         /// <summary>
         /// Initializes each field of the value type at a specified address to a null reference or a 0 of the
@@ -101,7 +115,8 @@ namespace StrictEmit
         /// <typeparam name="T">The type.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitInitObject<T>([NotNull] this ILGenerator il) => il.EmitInitObject(typeof(T));
+        public static void EmitInitObject<T>([NotNull] this ILGenerator il)
+            => il.EmitInitObject(typeof(T));
 
         /// <summary>
         /// Initializes each field of the value type at a specified address to a null reference or a 0 of the
@@ -110,7 +125,8 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="objectType">The type.</param>
         [PublicAPI]
-        public static void EmitInitObject([NotNull] this ILGenerator il, [NotNull] Type objectType) => il.Emit(OpCodes.Initobj, objectType);
+        public static void EmitInitObject([NotNull] this ILGenerator il, [NotNull] Type objectType)
+            => il.Emit(OpCodes.Initobj, objectType);
 
         /// <summary>
         /// Pushes a supplied value onto the evaluation stack as an <strong>int32</strong>. This method will use the
@@ -175,7 +191,7 @@ namespace StrictEmit
                 }
                 default:
                 {
-                    if (value >= 4 && value <= 255)
+                    if (value > 8 && value <= 255)
                     {
                         il.Emit(OpCodes.Ldc_I4_S, (byte)value);
                     }
@@ -194,7 +210,8 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="value">The value.</param>
         [PublicAPI]
-        public static void EmitConstantLong([NotNull] this ILGenerator il, long value) => il.Emit(OpCodes.Ldc_I8, value);
+        public static void EmitConstantLong([NotNull] this ILGenerator il, long value)
+            => il.Emit(OpCodes.Ldc_I8, value);
 
         /// <summary>
         /// Pushes a supplied value of type <strong>float32</strong> onto the evaluation stack as type
@@ -221,7 +238,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitLoadNull([NotNull] this ILGenerator il) => il.Emit(OpCodes.Ldnull);
+        public static void EmitLoadNull([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Ldnull);
 
         /// <summary>
         /// Pushes a new object reference to a string literal stored in the metadata.
@@ -256,7 +274,7 @@ namespace StrictEmit
         /// Converts a <see cref="Type"/> token to its runtime representation, pushing it onto the evaluation stack.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="type">The type.</param>
+        /// <param name="type">The type to convert to its runtime representation.</param>
         [PublicAPI]
         public static void EmitLoadToken([NotNull] this ILGenerator il, [NotNull] Type type)
             => il.Emit(OpCodes.Ldtoken, type);
@@ -264,10 +282,11 @@ namespace StrictEmit
         /// <summary>
         /// Converts the boxed representation of a value type to its unboxed form.
         /// </summary>
-        /// <typeparam name="T">The type.</typeparam>
+        /// <typeparam name="T">The type to unbox.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitUnbox<T>([NotNull] this ILGenerator il) => il.EmitUnbox(typeof(T));
+        public static void EmitUnbox<T>([NotNull] this ILGenerator il)
+            => il.EmitUnbox(typeof(T));
 
         /// <summary>
         /// Converts the boxed representation of a value type to its unboxed form.
@@ -281,10 +300,11 @@ namespace StrictEmit
         /// <summary>
         /// Converts the boxed representation of a type specified in the instruction to its unboxed form.
         /// </summary>
-        /// <typeparam name="T">The type.</typeparam>
+        /// <typeparam name="T">The type to unbox.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitUnboxAny<T>([NotNull] this ILGenerator il) => il.EmitUnboxAny(typeof(T));
+        public static void EmitUnboxAny<T>([NotNull] this ILGenerator il)
+            => il.EmitUnboxAny(typeof(T));
 
         /// <summary>
         /// Converts the boxed representation of a type specified in the instruction to its unboxed form.

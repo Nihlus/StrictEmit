@@ -29,7 +29,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToNativeInt([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_I);
+        public static void EmitConvertToNativeInt([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_I);
 
         /// <summary>
         /// Converts the value on top of the evaluation stack to <strong>int8</strong>, then extends (pads) it to
@@ -37,7 +38,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToByte([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_I1);
+        public static void EmitConvertToByte([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_I1);
 
         /// <summary>
         /// Converts the value on top of the evaluation stack to <strong>int16</strong>, then extends (pads) it to
@@ -45,21 +47,24 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToShort([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_I2);
+        public static void EmitConvertToShort([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_I2);
 
         /// <summary>
         /// Converts the value on top of the evaluation stack to <strong>int32</strong>.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToInt([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_I4);
+        public static void EmitConvertToInt([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_I4);
 
         /// <summary>
         /// Converts the value on top of the evaluation stack to <strong>int64</strong>.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToLong([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_I8);
+        public static void EmitConvertToLong([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_I8);
 
         /// <summary>
         /// Converts the signed value on top of the evaluation stack to signed <strong>native int</strong>, throwing
@@ -68,7 +73,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToNativeIntChecked([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_Ovf_I);
+        public static void EmitConvertToNativeIntChecked([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_Ovf_I);
 
         /// <summary>
         /// Converts the signed value on top of the evaluation stack to signed <strong>int8</strong> and extends it to
@@ -78,7 +84,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToByteChecked([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_Ovf_I1);
+        public static void EmitConvertToByteChecked([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_Ovf_I1);
 
         /// <summary>
         /// Converts the signed value on top of the evaluation stack to signed <strong>int16</strong> and extending it
@@ -88,7 +95,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToShortChecked([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_Ovf_I2);
+        public static void EmitConvertToShortChecked([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_Ovf_I2);
 
         /// <summary>
         /// Converts the signed value on top of the evaluation stack to signed <strong>int32</strong>, throwing
@@ -97,7 +105,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToIntChecked([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_Ovf_I4);
+        public static void EmitConvertToIntChecked([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_Ovf_I4);
 
         /// <summary>
         /// Converts the signed value on top of the evaluation stack to signed <strong>int64</strong>, throwing
@@ -106,7 +115,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToLongChecked([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_Ovf_I8);
+        public static void EmitConvertToLongChecked([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_Ovf_I8);
 
         /// <summary>
         /// Converts the unsigned value on top of the evaluation stack to signed <strong>native int</strong>, throwing
@@ -166,7 +176,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToUnsignedNativeInt([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_U);
+        public static void EmitConvertToUnsignedNativeInt([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_U);
 
         /// <summary>
         /// Converts the value on top of the evaluation stack to <strong>unsigned int8</strong>, and extends it to
@@ -174,7 +185,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToUByte([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_U1);
+        public static void EmitConvertToUByte([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_U1);
 
         /// <summary>
         /// Converts the value on top of the evaluation stack to <strong>unsigned int16</strong>, and extends it to
@@ -182,7 +194,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToUShort([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_U2);
+        public static void EmitConvertToUShort([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_U2);
 
         /// <summary>
         /// Converts the value on top of the evaluation stack to <strong>unsigned int32</strong>, and extends it to
@@ -190,7 +203,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToUInt([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_U4);
+        public static void EmitConvertToUInt([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_U4);
 
         /// <summary>
         /// Converts the value on top of the evaluation stack to <strong>unsigned int64</strong>, and extends it to
@@ -198,7 +212,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToULong([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_U8);
+        public static void EmitConvertToULong([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_U8);
 
         /// <summary>
         /// Converts the signed value on top of the evaluation stack to <strong>unsigned native int</strong>, throwing
@@ -218,7 +233,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToUByteChecked([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_Ovf_U1);
+        public static void EmitConvertToUByteChecked([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_Ovf_U1);
 
         /// <summary>
         /// Converts the signed value on top of the evaluation stack to <strong>unsigned int16</strong> and extends it
@@ -228,7 +244,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToUShortChecked([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_Ovf_U2);
+        public static void EmitConvertToUShortChecked([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_Ovf_U2);
 
         /// <summary>
         /// Converts the signed value on top of the evaluation stack to <strong>unsigned int32</strong>, throwing
@@ -237,7 +254,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToUIntChecked([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_Ovf_U4);
+        public static void EmitConvertToUIntChecked([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_Ovf_U4);
 
         /// <summary>
         /// Converts the signed value on top of the evaluation stack to <strong>unsigned int64</strong>, throwing
@@ -246,7 +264,8 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToULongChecked([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_Ovf_U8);
+        public static void EmitConvertToULongChecked([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_Ovf_U8);
 
         /// <summary>
         /// Converts the unsigned value on top of the evaluation stack to <strong>unsigned native int</strong>, throwing
@@ -305,14 +324,16 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToFloat([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_R4);
+        public static void EmitConvertToFloat([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_R4);
 
         /// <summary>
         /// Converts the value on top of the evaluation stack to <strong>float64</strong>.
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToDouble([NotNull] this ILGenerator il) => il.Emit(OpCodes.Conv_R8);
+        public static void EmitConvertToDouble([NotNull] this ILGenerator il)
+            => il.Emit(OpCodes.Conv_R8);
 
         /// <summary>
         /// Converts the unsigned integer value on top of the evaluation stack to <strong>float32</strong>.

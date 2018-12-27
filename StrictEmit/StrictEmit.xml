@@ -14,7 +14,7 @@
             Loads the element at a specified array index onto the top of the evaluation stack as the specified type, or
             as an object reference.
             <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The type.</typeparam>
+            <typeparam name="T">The element type of the array.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadArrayElement(System.Reflection.Emit.ILGenerator,System.Type)">
@@ -30,7 +30,7 @@
             Loads the address of the array element at a specified array index onto the top of the evaluation stack as
             type <strong>&amp;</strong> (managed pointer).
             <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The type.</typeparam>
+            <typeparam name="T">The element type of the array.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadArrayElementAddress(System.Reflection.Emit.ILGenerator,System.Type)">
@@ -53,7 +53,7 @@
             of a specific type onto the evaluation stack.
             <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
-            <param name="elementType">The element type.<p /><c>[NotNull]</c></param>
+            <param name="elementType">The element type of the array.<p /><c>[NotNull]</c></param>
             <param name="elementCount">The number of elements in the array.</param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewArray``1(System.Reflection.Emit.ILGenerator,System.Int32)">
@@ -61,7 +61,7 @@
             Pushes an object reference to a new zero-based, one-dimensional array of the given length whose elements are
             of a specific type onto the evaluation stack.
             <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The element type.</typeparam>
+            <typeparam name="T">The element type of the array.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="elementCount">The number of elements in the array.</param>
         </member>
@@ -70,7 +70,7 @@
             Pushes an object reference to a new zero-based, one-dimensional array whose elements are of a specific type
             onto the evaluation stack.
             <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The type.</typeparam>
+            <typeparam name="T">The element type of the array.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewArray(System.Reflection.Emit.ILGenerator,System.Type)">
@@ -87,7 +87,7 @@
             whose type is specified in the instruction. This method will use the appropriate type-optimized instruction,
             if applicable.
             <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The type.</typeparam>
+            <typeparam name="T">The element type of the array.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetArrayElement(System.Reflection.Emit.ILGenerator,System.Type)">
@@ -97,7 +97,7 @@
             if applicable.
             <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
-            <param name="arrayElementType">The type of the array elements.<p /><c>[NotNull]</c></param>
+            <param name="arrayElementType">The element type of the array.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitReadonlyArrayAddressAccessPrefix(System.Reflection.Emit.ILGenerator)">
             <summary>
@@ -221,19 +221,33 @@
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="constructor">The constructor.<p /><c>[NotNull]</c></param>
         </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitCastClass``1(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Attempts to cast an object passed by reference to the specified class.
+            <p /><c>[PublicAPI]</c></summary>
+            <typeparam name="T">The type to cast the item on the top of the stack to.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+        </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitCastClass(System.Reflection.Emit.ILGenerator,System.Type)">
             <summary>
             Attempts to cast an object passed by reference to the specified class.
             <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
-            <param name="classType">The type.<p /><c>[NotNull]</c></param>
+            <param name="classType">The type to cast the item on the top of the stack to.<p /><c>[NotNull]</c></param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallVirtualConstrainedPrefix``1(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Constrains the type on which a virtual method call is made.
+            <p /><c>[PublicAPI]</c></summary>
+            <typeparam name="T">The type in which the method exists.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitCallVirtualConstrainedPrefix(System.Reflection.Emit.ILGenerator,System.Type)">
             <summary>
             Constrains the type on which a virtual method call is made.
             <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
-            <param name="typeToConstrainTo">The type.<p /><c>[NotNull]</c></param>
+            <param name="typeToConstrainTo">The type in which the method exists.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadFunctionPointer(System.Reflection.Emit.ILGenerator,System.Reflection.MethodInfo)">
             <summary>
@@ -963,7 +977,7 @@
             <summary>
             Emits a set of IL instructions which will retrieve the current method, and get the argument specified by the
             given index, pushing it as a <see cref="T:System.Reflection.ParameterInfo" /> onto the evaluation stack.
-            </summary>
+            <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="argumentIndex">The index of the argument to get.</param>
         </member>
@@ -971,7 +985,7 @@
             <summary>
             Emits a set of IL instructions which will retrieve the current method, get its parameters, and then get the
             parameter at the given index, pushing it onto the evaluation stack.
-            </summary>
+            <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="parameterIndex">The index of the parameter to get in the parameter array.</param>
         </member>
@@ -979,7 +993,7 @@
             <summary>
             Emits a set of IL instructions which will retrieve the current method, get its return value parameter, and
             push it onto the evaluation stack.
-            </summary>
+            <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewObject``1(System.Reflection.Emit.ILGenerator)">
@@ -987,8 +1001,17 @@
             Creates a new object or a new instance of a value type, pushing an object reference
             (type <strong>O</strong>) onto the evaluation stack.
             <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The type.</typeparam>
+            <typeparam name="T">The type of object to create an instance of.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewObject``1(System.Reflection.Emit.ILGenerator,System.Type[])">
+            <summary>
+            Creates a new object or a new instance of a value type, pushing an object reference
+            (type <strong>O</strong>) onto the evaluation stack.
+            <p /><c>[PublicAPI]</c></summary>
+            <typeparam name="T">The type of object to create an instance of.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="parameterTypes">The parameter types that the constructor accepts.</param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitNewObject(System.Reflection.Emit.ILGenerator,System.Reflection.ConstructorInfo)">
             <summary>
@@ -1002,7 +1025,7 @@
             <summary>
             Copies a value of a specified type from the evaluation stack into a supplied memory address.
             <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The type.</typeparam>
+            <typeparam name="T">The type of object to set.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetObject(System.Reflection.Emit.ILGenerator,System.Type)">
@@ -1016,7 +1039,7 @@
             <summary>
             Tests whether an object reference (type <strong>O</strong>) is an instance of a particular class.
             <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The type.</typeparam>
+            <typeparam name="T">The object type to test against.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitIsInstance(System.Reflection.Emit.ILGenerator,System.Type)">
@@ -1024,7 +1047,14 @@
             Tests whether an object reference (type <strong>O</strong>) is an instance of a particular class.
             <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
-            <param name="typeToCheck">The type.<p /><c>[NotNull]</c></param>
+            <param name="typeToCheck">The object type to test against.<p /><c>[NotNull]</c></param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitSet``1(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Stores a value or an object reference at a supplied address.
+            <p /><c>[PublicAPI]</c></summary>
+            <typeparam name="T">The type of the object to store.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitSet(System.Reflection.Emit.ILGenerator,System.Type)">
             <summary>
@@ -1106,6 +1136,74 @@
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="type">The type to create a reference to.<p /><c>[NotNull]</c></param>
         </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetProperty(System.Reflection.Emit.ILGenerator,System.Type,System.String,System.Reflection.BindingFlags)">
+            <summary>
+            Pops the value on the evaluation stack, setting the named property's value to it.
+            <p /><c>[PublicAPI]</c></summary>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="containingType">The type in which the property is defined.<p /><c>[NotNull]</c></param>
+            <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
+            <param name="flags">The binding flags to use.</param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetProperty(System.Reflection.Emit.ILGenerator,System.Type,System.String)">
+            <summary>
+            Pops the value on the evaluation stack, setting the named property's value to it.
+            <p /><c>[PublicAPI]</c></summary>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="containingType">The type in which the property is defined.<p /><c>[NotNull]</c></param>
+            <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetProperty``1(System.Reflection.Emit.ILGenerator,System.String)">
+            <summary>
+            Pops the value on the evaluation stack, setting the named property's value to it.
+            <p /><c>[PublicAPI]</c></summary>
+            <typeparam name="T">The type in which the property is defined.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitSetProperty``1(System.Reflection.Emit.ILGenerator,System.String,System.Reflection.BindingFlags)">
+            <summary>
+            Pops the value on the evaluation stack, setting the named property's value to it.
+            <p /><c>[PublicAPI]</c></summary>
+            <typeparam name="T">The type in which the property is defined.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
+            <param name="flags">The binding flags to use.</param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitGetProperty(System.Reflection.Emit.ILGenerator,System.Type,System.String,System.Reflection.BindingFlags)">
+            <summary>
+            Gets the value of the named property, placing it onto the evaluation stack.
+            <p /><c>[PublicAPI]</c></summary>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="containingType">The type in which the property is defined.<p /><c>[NotNull]</c></param>
+            <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
+            <param name="flags">The binding flags to use.</param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitGetProperty(System.Reflection.Emit.ILGenerator,System.Type,System.String)">
+            <summary>
+            Gets the value of the named property, placing it onto the evaluation stack.
+            <p /><c>[PublicAPI]</c></summary>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="containingType">The type in which the property is defined.<p /><c>[NotNull]</c></param>
+            <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitGetProperty``1(System.Reflection.Emit.ILGenerator,System.String)">
+            <summary>
+            Gets the value of the named property, placing it onto the evaluation stack.
+            <p /><c>[PublicAPI]</c></summary>
+            <typeparam name="T">The type in which the property is defined.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitGetProperty``1(System.Reflection.Emit.ILGenerator,System.String,System.Reflection.BindingFlags)">
+            <summary>
+            Gets the value of the named property, placing it onto the evaluation stack.
+            <p /><c>[PublicAPI]</c></summary>
+            <typeparam name="T">The type in which the property is defined.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+            <param name="propertyName">The name of the property.<p /><c>[NotNull]</c></param>
+            <param name="flags">The binding flags to use.</param>
+        </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitBreakpoint(System.Reflection.Emit.ILGenerator)">
             <summary>
             Signals the Common Language Infrastructure (CLI) to inform the debugger that a break point has been tripped.
@@ -1129,7 +1227,7 @@
             <summary>
             Pushes the size, in bytes, of a supplied value type onto the evaluation stack.
             <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The type.</typeparam>
+            <typeparam name="T">The type to calculate the size of.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitSizeOf(System.Reflection.Emit.ILGenerator,System.Type)">
@@ -1137,13 +1235,21 @@
             Pushes the size, in bytes, of a supplied value type onto the evaluation stack.
             <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
-            <param name="type">The type.<p /><c>[NotNull]</c></param>
+            <param name="type">The type to calculate the size of.<p /><c>[NotNull]</c></param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitTypeOf``1(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Emits a set of IL instructions which will produce the equivalent of a typeof(T) call, placing it onto the
+            evaluation stack.
+            <p /><c>[PublicAPI]</c></summary>
+            <typeparam name="T">The type to be emitted.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>.
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitTypeOf(System.Reflection.Emit.ILGenerator,System.Type)">
             <summary>
             Emits a set of IL instructions which will produce the equivalent of a typeof(T) call, placing it onto the
             evaluation stack.
-            </summary>
+            <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="type">The type to be emitted.<p /><c>[NotNull]</c></param>
         </member>
@@ -1153,12 +1259,19 @@
             <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitBox``1(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Converts a value type to an object reference (type <strong>O</strong>).
+            <p /><c>[PublicAPI]</c></summary>
+            <typeparam name="T">The type to box into an object reference.</typeparam>
+            <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
+        </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitBox(System.Reflection.Emit.ILGenerator,System.Type)">
             <summary>
             Converts a value type to an object reference (type <strong>O</strong>).
             <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
-            <param name="typeToBox">The type.<p /><c>[NotNull]</c></param>
+            <param name="typeToBox">The type to box into an object reference.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitCopyBlock(System.Reflection.Emit.ILGenerator)">
             <summary>
@@ -1278,13 +1391,13 @@
             Converts a <see cref="T:System.Type" /> token to its runtime representation, pushing it onto the evaluation stack.
             <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
-            <param name="type">The type.<p /><c>[NotNull]</c></param>
+            <param name="type">The type to convert to its runtime representation.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitUnbox``1(System.Reflection.Emit.ILGenerator)">
             <summary>
             Converts the boxed representation of a value type to its unboxed form.
             <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The type.</typeparam>
+            <typeparam name="T">The type to unbox.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitUnbox(System.Reflection.Emit.ILGenerator,System.Type)">
@@ -1298,7 +1411,7 @@
             <summary>
             Converts the boxed representation of a type specified in the instruction to its unboxed form.
             <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The type.</typeparam>
+            <typeparam name="T">The type to unbox.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitUnboxAny(System.Reflection.Emit.ILGenerator,System.Type)">
@@ -1350,10 +1463,14 @@
             <summary>
             Loads the specified local variable onto the evaluation stack.
             <p /><c>[PublicAPI]</c></summary>
+            <remarks>
+            The <see cref="P:System.Reflection.Emit.LocalBuilder.LocalIndex" /> is used instead of the <see cref="T:System.Reflection.Emit.LocalBuilder" /> itself in order to take
+            advantage of the optimized instructions in <see cref="M:StrictEmit.ILGeneratorExtensions.EmitLoadLocalVariable(System.Reflection.Emit.ILGenerator,System.Int16)" />
+            </remarks>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="local">The local variable.<p /><c>[NotNull]</c></param>
         </member>
-        <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadLocalVariableAddress(System.Reflection.Emit.ILGenerator,System.Int32)">
+        <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadLocalVariableAddress(System.Reflection.Emit.ILGenerator,System.Int16)">
             <summary>
             Loads the address of the local variable at a specific index onto the evaluation stack. This method will use
             the appropriate short-optimized instruction, if applicable.
@@ -1365,6 +1482,10 @@
             <summary>
             Loads the address of the local variable at a specific index onto the evaluation stack.
             <p /><c>[PublicAPI]</c></summary>
+            <remarks>
+            The <see cref="P:System.Reflection.Emit.LocalBuilder.LocalIndex" /> is used instead of the <see cref="T:System.Reflection.Emit.LocalBuilder" /> itself in order to take
+            advantage of the optimized instructions in <see cref="M:StrictEmit.ILGeneratorExtensions.EmitLoadLocalVariableAddress(System.Reflection.Emit.ILGenerator,System.Int16)" />
+            </remarks>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="local">The local variable.<p /><c>[NotNull]</c></param>
         </member>
@@ -1372,7 +1493,7 @@
             <summary>
             Copies the value type object pointed to by an address to the top of the evaluation stack.
             <p /><c>[PublicAPI]</c></summary>
-            <typeparam name="T">The type.</typeparam>
+            <typeparam name="T">The type of object to load.</typeparam>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadObject(System.Reflection.Emit.ILGenerator,System.Type)">
@@ -1380,7 +1501,7 @@
             Copies the value type object pointed to by an address to the top of the evaluation stack.
             <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
-            <param name="valueType">The type.<p /><c>[NotNull]</c></param>
+            <param name="valueType">The type of object to load.<p /><c>[NotNull]</c></param>
         </member>
         <member name="M:StrictEmit.ILGeneratorExtensions.EmitLoadStaticField(System.Reflection.Emit.ILGenerator,System.Reflection.FieldInfo)">
             <summary>
@@ -1423,6 +1544,10 @@
             <summary>
             Pops the current value from the top of the evaluation stack and stores it in the specified local variable.
             <p /><c>[PublicAPI]</c></summary>
+            <remarks>
+            The <see cref="P:System.Reflection.Emit.LocalBuilder.LocalIndex" /> is used instead of the <see cref="T:System.Reflection.Emit.LocalBuilder" /> itself in order to take
+            advantage of the optimized instructions in <see cref="M:StrictEmit.ILGeneratorExtensions.EmitSetLocalVariable(System.Reflection.Emit.ILGenerator,System.Int16)" />
+            </remarks>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="local">The local variable.<p /><c>[NotNull]</c></param>
         </member>
@@ -1452,6 +1577,15 @@
             <p /><c>[PublicAPI]</c></summary>
             <param name="il">The generator where the IL is to be emitted.<p /><c>[NotNull]</c></param>
             <param name="offset">The instruction offset.</param>
+        </member>
+        <member name="M:StrictEmit.ILGeneratorExtensions.DeclareLocal``1(System.Reflection.Emit.ILGenerator,System.Boolean)">
+            <summary>
+            Declares a local of type T.
+            <p /><c>[PublicAPI, NotNull]</c></summary>
+            <typeparam name="T">The type of the newly generated local.</typeparam>
+            <param name="il">The generator where the local is to be declared.<p /><c>[NotNull]</c></param>
+            <param name="pinned">true to pin the object in memory; otherwise, false.</param>
+            <returns>The LocalBuilder declared with type T.</returns>
         </member>
     </members>
 </doc>

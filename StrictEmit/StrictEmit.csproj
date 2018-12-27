@@ -9,7 +9,7 @@
   <PropertyGroup>
     <Title>StrictEmit</Title>
     <Authors>Jax</Authors>
-    <Version>2.4.2</Version>
+    <Version>2.7.1</Version>
     <Description>Better, stricter ILGenerator.Emit</Description>
     <Copyright>Jarl Gullberg 2017</Copyright>
   </PropertyGroup>
@@ -17,7 +17,7 @@
     <PackageId>StrictEmit</PackageId>
     <PackageLicenseUrl>https://www.gnu.org/licenses/gpl-3.0.en.html</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Add a couple of meta-reflection methods, and a TypeOf method.</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix missing parameter.</PackageReleaseNotes>
     <PackageTags>emit;cil;cross-platform;mono;netcore;netstandard;netframework</PackageTags>
     <PackageOutputPath>../nuget</PackageOutputPath>
     <IncludeSymbols>True</IncludeSymbols>
@@ -47,7 +47,7 @@
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta004" PrivateAssets="all" />
     <PackageReference Include="JetBrains.Annotations" Version="11.1.0" PrivateAssets="all" />
     <PackageReference Include="JetBrainsAnnotations.Fody" Version="2.2.0" PrivateAssets="all" />
-    <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.Emit.ILGeneration" Version="4.3.0" />
   </ItemGroup>
   <Import Project="..\msbuild\netfx-mono.props" />
 </Project>
