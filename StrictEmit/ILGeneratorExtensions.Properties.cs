@@ -72,7 +72,7 @@ namespace StrictEmit
             [NotNull] Type containingType,
             [NotNull] string propertyName
         )
-        => il.EmitSetProperty(containingType, propertyName, BindingFlags.Default);
+        => il.EmitSetProperty(containingType, propertyName, BindingFlags.Instance | BindingFlags.Public);
 
         /// <summary>
         /// Pops the value on the evaluation stack, setting the named property's value to it.
@@ -146,7 +146,7 @@ namespace StrictEmit
             [NotNull] Type containingType,
             [NotNull] string propertyName
         )
-            => il.EmitGetProperty(containingType, propertyName, BindingFlags.Default);
+            => il.EmitGetProperty(containingType, propertyName, BindingFlags.Instance | BindingFlags.Public);
 
         /// <summary>
         /// Gets the value of the named property, placing it onto the evaluation stack.
