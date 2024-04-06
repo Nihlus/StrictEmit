@@ -12,15 +12,12 @@
 
     <!-- NuGet-related properties -->
     <PropertyGroup>
-        <PackageId>StrictEmit</PackageId>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <PackageReleaseNotes>Fix default BindingFlags on EmitGet/SetProperty.</PackageReleaseNotes>
-        <PackageTags>emit;cil;cross-platform;mono;netcore;netstandard;netframework</PackageTags>
-        <PackageOutputPath>../nuget</PackageOutputPath>
-        <IncludeSymbols>True</IncludeSymbols>
-        <IncludeSource>True</IncludeSource>
+
         <RepositoryUrl>https://github.com/Nihlus/StrictEmit</RepositoryUrl>
+
         <PackageProjectUrl>https://github.com/Nihlus/StrictEmit</PackageProjectUrl>
+        <PackageOutputPath>$(SolutionDir)/nuget</PackageOutputPath>
     </PropertyGroup>
 
     <PropertyGroup>

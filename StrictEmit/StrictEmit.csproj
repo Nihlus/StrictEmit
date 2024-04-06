@@ -4,11 +4,11 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Title>StrictEmit</Title>
-        <Authors>Jax</Authors>
         <Version>2.7.2</Version>
         <Description>Better, stricter ILGenerator.Emit</Description>
-        <Copyright>Jarl Gullberg 2024</Copyright>
+        
+        <PackageReleaseNotes>Fix default BindingFlags on EmitGet/SetProperty.</PackageReleaseNotes>
+        <PackageTags>emit;cil;cross-platform;mono;netcore;netstandard;netframework</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
