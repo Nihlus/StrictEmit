@@ -4,8 +4,6 @@
 //  SPDX-License-Identifier: GPL-3.0-or-later
 //
 
-#pragma warning disable SA1513
-
 using System;
 using System.Reflection;
 using System.Reflection.Emit;
