@@ -38,7 +38,7 @@ namespace StrictEmit
                 );
             }
 
-            if (!property.CanWrite)
+            if (!property.CanWrite || property.SetMethod is null)
             {
                 throw new ArgumentException($"The property \"{property.Name}\" doesn't have a setter.");
             }
@@ -112,7 +112,7 @@ namespace StrictEmit
                 );
             }
 
-            if (!property.CanRead)
+            if (!property.CanRead || property.GetMethod is null)
             {
                 throw new ArgumentException($"The property \"{property.Name}\" doesn't have a getter.");
             }

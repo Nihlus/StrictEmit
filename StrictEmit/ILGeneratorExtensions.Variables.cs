@@ -149,7 +149,7 @@ namespace StrictEmit
         /// </summary>
         /// <remarks>
         /// The <see cref="LocalBuilder.LocalIndex"/> is used instead of the <see cref="LocalBuilder"/> itself in order to take
-        /// advantage of the optimized instructions in <see cref="EmitLoadLocalVariable(ILGenerator, short)"/>
+        /// advantage of the optimized instructions in <see cref="EmitLoadLocalVariable(ILGenerator, short)"/>.
         /// </remarks>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="local">The local variable.</param>
@@ -181,7 +181,7 @@ namespace StrictEmit
         /// </summary>
         /// <remarks>
         /// The <see cref="LocalBuilder.LocalIndex"/> is used instead of the <see cref="LocalBuilder"/> itself in order to take
-        /// advantage of the optimized instructions in <see cref="EmitLoadLocalVariableAddress(ILGenerator, short)"/>
+        /// advantage of the optimized instructions in <see cref="EmitLoadLocalVariableAddress(ILGenerator, short)"/>.
         /// </remarks>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="local">The local variable.</param>
@@ -318,7 +318,7 @@ namespace StrictEmit
         /// </summary>
         /// <remarks>
         /// The <see cref="LocalBuilder.LocalIndex"/> is used instead of the <see cref="LocalBuilder"/> itself in order to take
-        /// advantage of the optimized instructions in <see cref="EmitSetLocalVariable(ILGenerator, short)"/>
+        /// advantage of the optimized instructions in <see cref="EmitSetLocalVariable(ILGenerator, short)"/>.
         /// </remarks>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="local">The local variable.</param>

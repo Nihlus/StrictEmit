@@ -54,8 +54,9 @@ namespace StrictEmit
         [PublicAPI]
         public static void EmitGetCurrentMethodReturnParameter(this ILGenerator il)
         {
-            // ReSharper disable once PossibleNullReferenceException
-            var getReturnParamFunc = typeof(MethodInfo).GetProperty(nameof(MethodInfo.ReturnParameter), BindingFlags.Public | BindingFlags.Instance).GetMethod;
+            var getReturnParamFunc = typeof(MethodInfo)
+                .GetProperty(nameof(MethodInfo.ReturnParameter), BindingFlags.Public | BindingFlags.Instance)!
+                .GetMethod!;
 
             il.EmitCallDirect<MethodBase>(nameof(MethodBase.GetCurrentMethod));
             il.EmitCallVirtual(getReturnParamFunc);

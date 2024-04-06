@@ -109,7 +109,7 @@ namespace StrictEmit
         (
             this ILGenerator il,
             CallingConventions callingConventions,
-            [CanBeNull] Type returnType = null,
+            Type? returnType = null,
             params Type[] parameterTypes
         )
         {
@@ -137,7 +137,7 @@ namespace StrictEmit
         (
             this ILGenerator il,
             CallingConvention callingConvention,
-            [CanBeNull] Type returnType = null,
+            Type? returnType = null,
             params Type[] parameterTypes
         )
         {
