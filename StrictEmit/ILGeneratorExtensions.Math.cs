@@ -7,246 +7,245 @@
 using System.Reflection.Emit;
 using JetBrains.Annotations;
 
-namespace StrictEmit
+namespace StrictEmit;
+
+public static partial class ILGeneratorExtensions
 {
-    public static partial class ILGeneratorExtensions
-    {
-        /// <summary>
-        /// Adds two values and pushes the result onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitAdd(this ILGenerator il)
-            => il.Emit(OpCodes.Add);
+    /// <summary>
+    /// Adds two values and pushes the result onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitAdd(this ILGenerator il)
+        => il.Emit(OpCodes.Add);
 
-        /// <summary>
-        /// Adds two integers, performs an overflow check, and pushes the result onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitAddChecked(this ILGenerator il)
-            => il.Emit(OpCodes.Add_Ovf);
+    /// <summary>
+    /// Adds two integers, performs an overflow check, and pushes the result onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitAddChecked(this ILGenerator il)
+        => il.Emit(OpCodes.Add_Ovf);
 
-        /// <summary>
-        /// Adds two unsigned integer values, performs an overflow check, and pushes the result onto the evaluation
-        /// stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitUnsignedAddChecked(this ILGenerator il)
-            => il.Emit(OpCodes.Add_Ovf_Un);
+    /// <summary>
+    /// Adds two unsigned integer values, performs an overflow check, and pushes the result onto the evaluation
+    /// stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitUnsignedAddChecked(this ILGenerator il)
+        => il.Emit(OpCodes.Add_Ovf_Un);
 
-        /// <summary>
-        /// Computes the bitwise AND of two values and pushes the result onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitAnd(this ILGenerator il)
-            => il.Emit(OpCodes.And);
+    /// <summary>
+    /// Computes the bitwise AND of two values and pushes the result onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitAnd(this ILGenerator il)
+        => il.Emit(OpCodes.And);
 
-        /// <summary>
-        /// Compares two values. If they are equal, the integer value 1 <strong>(int32</strong>) is pushed onto the
-        /// evaluation stack; otherwise 0 (<strong>int32</strong>) is pushed onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitCompareEqual(this ILGenerator il)
-            => il.Emit(OpCodes.Ceq);
+    /// <summary>
+    /// Compares two values. If they are equal, the integer value 1 <strong>(int32</strong>) is pushed onto the
+    /// evaluation stack; otherwise 0 (<strong>int32</strong>) is pushed onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitCompareEqual(this ILGenerator il)
+        => il.Emit(OpCodes.Ceq);
 
-        /// <summary>
-        /// Compares two values. If the first value is greater than the second, the integer value 1
-        /// <strong>(int32</strong>) is pushed onto the evaluation stack; otherwise 0 (<strong>int32</strong>) is pushed
-        /// onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitCompareGreaterThan(this ILGenerator il)
-            => il.Emit(OpCodes.Cgt);
+    /// <summary>
+    /// Compares two values. If the first value is greater than the second, the integer value 1
+    /// <strong>(int32</strong>) is pushed onto the evaluation stack; otherwise 0 (<strong>int32</strong>) is pushed
+    /// onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitCompareGreaterThan(this ILGenerator il)
+        => il.Emit(OpCodes.Cgt);
 
-        /// <summary>
-        /// Compares two unsigned or unordered values. If the first value is greater than the second, the integer value
-        /// 1 <strong>(int32</strong>) is pushed onto the evaluation stack; otherwise 0 (<strong>int32</strong>) is
-        /// pushed onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitCompareGreaterThanUnsigned(this ILGenerator il)
-            => il.Emit(OpCodes.Cgt_Un);
+    /// <summary>
+    /// Compares two unsigned or unordered values. If the first value is greater than the second, the integer value
+    /// 1 <strong>(int32</strong>) is pushed onto the evaluation stack; otherwise 0 (<strong>int32</strong>) is
+    /// pushed onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitCompareGreaterThanUnsigned(this ILGenerator il)
+        => il.Emit(OpCodes.Cgt_Un);
 
-        /// <summary>
-        /// Throws <a href="https://msdn.microsoft.com/en-us/library/system.arithmeticexception(v=vs.110).aspx">ArithmeticException</a>
-        /// if value is not a finite number.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitCheckIsFinite(this ILGenerator il)
-            => il.Emit(OpCodes.Ckfinite);
+    /// <summary>
+    /// Throws <a href="https://msdn.microsoft.com/en-us/library/system.arithmeticexception(v=vs.110).aspx">ArithmeticException</a>
+    /// if value is not a finite number.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitCheckIsFinite(this ILGenerator il)
+        => il.Emit(OpCodes.Ckfinite);
 
-        /// <summary>
-        /// Compares two values. If the first value is less than the second, the integer value 1
-        /// <strong>(int32</strong>) is pushed onto the evaluation stack; otherwise 0 (<strong>int32</strong>) is pushed
-        /// onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitCompareLessThan(this ILGenerator il)
-            => il.Emit(OpCodes.Clt);
+    /// <summary>
+    /// Compares two values. If the first value is less than the second, the integer value 1
+    /// <strong>(int32</strong>) is pushed onto the evaluation stack; otherwise 0 (<strong>int32</strong>) is pushed
+    /// onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitCompareLessThan(this ILGenerator il)
+        => il.Emit(OpCodes.Clt);
 
-        /// <summary>
-        /// Compares the unsigned or unordered values <em>value1</em> and <em>value2</em>. If <em>value1</em> is less
-        /// than <em>value2</em>, then the integer value 1 <strong>(int32</strong>) is pushed onto the evaluation stack;
-        /// otherwise 0 (<strong>int32</strong>) is pushed onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitCompareLessThanUnsigned(this ILGenerator il)
-            => il.Emit(OpCodes.Clt_Un);
+    /// <summary>
+    /// Compares the unsigned or unordered values <em>value1</em> and <em>value2</em>. If <em>value1</em> is less
+    /// than <em>value2</em>, then the integer value 1 <strong>(int32</strong>) is pushed onto the evaluation stack;
+    /// otherwise 0 (<strong>int32</strong>) is pushed onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitCompareLessThanUnsigned(this ILGenerator il)
+        => il.Emit(OpCodes.Clt_Un);
 
-        /// <summary>
-        /// Divides two values and pushes the result as a floating-point (type <strong>F</strong>) or quotient
-        /// (type <strong>int32</strong>) onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitDivide(this ILGenerator il)
-            => il.Emit(OpCodes.Div);
+    /// <summary>
+    /// Divides two values and pushes the result as a floating-point (type <strong>F</strong>) or quotient
+    /// (type <strong>int32</strong>) onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitDivide(this ILGenerator il)
+        => il.Emit(OpCodes.Div);
 
-        /// <summary>
-        /// Divides two unsigned integer values and pushes the result (<strong>int32</strong>) onto the evaluation
-        /// stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitDivideUnsigned(this ILGenerator il)
-            => il.Emit(OpCodes.Div_Un);
+    /// <summary>
+    /// Divides two unsigned integer values and pushes the result (<strong>int32</strong>) onto the evaluation
+    /// stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitDivideUnsigned(this ILGenerator il)
+        => il.Emit(OpCodes.Div_Un);
 
-        /// <summary>
-        /// Subtracts one value from another and pushes the result onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitSubtract(this ILGenerator il)
-            => il.Emit(OpCodes.Sub);
+    /// <summary>
+    /// Subtracts one value from another and pushes the result onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitSubtract(this ILGenerator il)
+        => il.Emit(OpCodes.Sub);
 
-        /// <summary>
-        /// Subtracts one integer value from another, performs an overflow check, and pushes the result onto the
-        /// evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitSubtractChecked(this ILGenerator il)
-            => il.Emit(OpCodes.Sub_Ovf);
+    /// <summary>
+    /// Subtracts one integer value from another, performs an overflow check, and pushes the result onto the
+    /// evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitSubtractChecked(this ILGenerator il)
+        => il.Emit(OpCodes.Sub_Ovf);
 
-        /// <summary>
-        /// Subtracts one unsigned integer value from another, performs an overflow check, and pushes the result onto
-        /// the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitUnsignedSubtractChecked(this ILGenerator il)
-            => il.Emit(OpCodes.Sub_Ovf_Un);
+    /// <summary>
+    /// Subtracts one unsigned integer value from another, performs an overflow check, and pushes the result onto
+    /// the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitUnsignedSubtractChecked(this ILGenerator il)
+        => il.Emit(OpCodes.Sub_Ovf_Un);
 
-        /// <summary>
-        /// Shifts an integer value to the left (in zeroes) by a specified number of bits, pushing the result onto the
-        /// evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitShiftLeft(this ILGenerator il)
-            => il.Emit(OpCodes.Shl);
+    /// <summary>
+    /// Shifts an integer value to the left (in zeroes) by a specified number of bits, pushing the result onto the
+    /// evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitShiftLeft(this ILGenerator il)
+        => il.Emit(OpCodes.Shl);
 
-        /// <summary>
-        /// Shifts an integer value (in sign) to the right by a specified number of bits, pushing the result onto the
-        /// evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitShiftRight(this ILGenerator il)
-            => il.Emit(OpCodes.Shr);
+    /// <summary>
+    /// Shifts an integer value (in sign) to the right by a specified number of bits, pushing the result onto the
+    /// evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitShiftRight(this ILGenerator il)
+        => il.Emit(OpCodes.Shr);
 
-        /// <summary>
-        /// Shifts an unsigned integer value (in zeroes) to the right by a specified number of bits, pushing the result
-        /// onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitShiftRightUnsigned(this ILGenerator il)
-            => il.Emit(OpCodes.Shr_Un);
+    /// <summary>
+    /// Shifts an unsigned integer value (in zeroes) to the right by a specified number of bits, pushing the result
+    /// onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitShiftRightUnsigned(this ILGenerator il)
+        => il.Emit(OpCodes.Shr_Un);
 
-        /// <summary>
-        /// Divides two values and pushes the remainder onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitRemainder(this ILGenerator il)
-            => il.Emit(OpCodes.Rem);
+    /// <summary>
+    /// Divides two values and pushes the remainder onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitRemainder(this ILGenerator il)
+        => il.Emit(OpCodes.Rem);
 
-        /// <summary>
-        /// Divides two unsigned values and pushes the remainder onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitRemainderUnsigned(this ILGenerator il)
-            => il.Emit(OpCodes.Rem_Un);
+    /// <summary>
+    /// Divides two unsigned values and pushes the remainder onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitRemainderUnsigned(this ILGenerator il)
+        => il.Emit(OpCodes.Rem_Un);
 
-        /// <summary>
-        /// Computes the bitwise complement of the integer value on top of the stack and pushes the result onto the
-        /// evaluation stack as the same type.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitBitwiseNot(this ILGenerator il)
-            => il.Emit(OpCodes.Not);
+    /// <summary>
+    /// Computes the bitwise complement of the integer value on top of the stack and pushes the result onto the
+    /// evaluation stack as the same type.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitBitwiseNot(this ILGenerator il)
+        => il.Emit(OpCodes.Not);
 
-        /// <summary>
-        /// Compute the bitwise complement of the two integer values on top of the stack and pushes the result onto the
-        /// evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitBitwiseOr(this ILGenerator il)
-            => il.Emit(OpCodes.Or);
+    /// <summary>
+    /// Compute the bitwise complement of the two integer values on top of the stack and pushes the result onto the
+    /// evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitBitwiseOr(this ILGenerator il)
+        => il.Emit(OpCodes.Or);
 
-        /// <summary>
-        /// Computes the bitwise XOR of the top two values on the evaluation stack, pushing the result onto the
-        /// evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitBitwiseXor(this ILGenerator il)
-            => il.Emit(OpCodes.Xor);
+    /// <summary>
+    /// Computes the bitwise XOR of the top two values on the evaluation stack, pushing the result onto the
+    /// evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitBitwiseXor(this ILGenerator il)
+        => il.Emit(OpCodes.Xor);
 
-        /// <summary>
-        /// Multiplies two values and pushes the result on the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitMultiply(this ILGenerator il)
-            => il.Emit(OpCodes.Mul);
+    /// <summary>
+    /// Multiplies two values and pushes the result on the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitMultiply(this ILGenerator il)
+        => il.Emit(OpCodes.Mul);
 
-        /// <summary>
-        /// Multiplies two integer values, performs an overflow check, and pushes the result onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitMultiplyChecked(this ILGenerator il)
-            => il.Emit(OpCodes.Mul_Ovf);
+    /// <summary>
+    /// Multiplies two integer values, performs an overflow check, and pushes the result onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitMultiplyChecked(this ILGenerator il)
+        => il.Emit(OpCodes.Mul_Ovf);
 
-        /// <summary>
-        /// Multiplies two unsigned integer values, performs an overflow check, and pushes the result onto the
-        /// evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitUnsignedMultiplyChecked(this ILGenerator il)
-            => il.Emit(OpCodes.Mul_Ovf_Un);
+    /// <summary>
+    /// Multiplies two unsigned integer values, performs an overflow check, and pushes the result onto the
+    /// evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitUnsignedMultiplyChecked(this ILGenerator il)
+        => il.Emit(OpCodes.Mul_Ovf_Un);
 
-        /// <summary>
-        /// Negates a value and pushes the result onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitNegate(this ILGenerator il)
-            => il.Emit(OpCodes.Neg);
-    }
+    /// <summary>
+    /// Negates a value and pushes the result onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitNegate(this ILGenerator il)
+        => il.Emit(OpCodes.Neg);
 }

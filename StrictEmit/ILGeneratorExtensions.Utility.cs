@@ -8,74 +8,73 @@ using System;
 using System.Reflection.Emit;
 using JetBrains.Annotations;
 
-namespace StrictEmit
+namespace StrictEmit;
+
+public static partial class ILGeneratorExtensions
 {
-    public static partial class ILGeneratorExtensions
+    /// <summary>
+    /// Signals the Common Language Infrastructure (CLI) to inform the debugger that a break point has been tripped.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitBreakpoint(this ILGenerator il)
+        => il.Emit(OpCodes.Break);
+
+    /// <summary>
+    /// Fills space if opcodes are patched. No meaningful operation is performed although a processing cycle can be
+    /// consumed.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitNoOperation(this ILGenerator il)
+        => il.Emit(OpCodes.Nop);
+
+    /// <summary>
+    /// Removes the value currently on top of the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitPop(this ILGenerator il)
+        => il.Emit(OpCodes.Pop);
+
+    /// <summary>
+    /// Pushes the size, in bytes, of a supplied value type onto the evaluation stack.
+    /// </summary>
+    /// <typeparam name="T">The type to calculate the size of.</typeparam>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    [PublicAPI]
+    public static void EmitSizeOf<T>(this ILGenerator il)
+        => il.EmitSizeOf(typeof(T));
+
+    /// <summary>
+    /// Pushes the size, in bytes, of a supplied value type onto the evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    /// <param name="type">The type to calculate the size of.</param>
+    [PublicAPI]
+    public static void EmitSizeOf(this ILGenerator il, Type type)
+        => il.Emit(OpCodes.Sizeof, type);
+
+    /// <summary>
+    /// Emits a set of IL instructions which will produce the equivalent of a typeof(T) call, placing it onto the
+    /// evaluation stack.
+    /// </summary>
+    /// <typeparam name="T">The type to be emitted.</typeparam>
+    /// <param name="il">The generator where the IL is to be emitted.</param>.
+    [PublicAPI]
+    public static void EmitTypeOf<T>(this ILGenerator il)
+        => il.EmitTypeOf(typeof(T));
+
+    /// <summary>
+    /// Emits a set of IL instructions which will produce the equivalent of a typeof(T) call, placing it onto the
+    /// evaluation stack.
+    /// </summary>
+    /// <param name="il">The generator where the IL is to be emitted.</param>
+    /// <param name="type">The type to be emitted.</param>
+    [PublicAPI]
+    public static void EmitTypeOf(this ILGenerator il, Type type)
     {
-        /// <summary>
-        /// Signals the Common Language Infrastructure (CLI) to inform the debugger that a break point has been tripped.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitBreakpoint(this ILGenerator il)
-            => il.Emit(OpCodes.Break);
-
-        /// <summary>
-        /// Fills space if opcodes are patched. No meaningful operation is performed although a processing cycle can be
-        /// consumed.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitNoOperation(this ILGenerator il)
-            => il.Emit(OpCodes.Nop);
-
-        /// <summary>
-        /// Removes the value currently on top of the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitPop(this ILGenerator il)
-            => il.Emit(OpCodes.Pop);
-
-        /// <summary>
-        /// Pushes the size, in bytes, of a supplied value type onto the evaluation stack.
-        /// </summary>
-        /// <typeparam name="T">The type to calculate the size of.</typeparam>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        [PublicAPI]
-        public static void EmitSizeOf<T>(this ILGenerator il)
-            => il.EmitSizeOf(typeof(T));
-
-        /// <summary>
-        /// Pushes the size, in bytes, of a supplied value type onto the evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="type">The type to calculate the size of.</param>
-        [PublicAPI]
-        public static void EmitSizeOf(this ILGenerator il, Type type)
-            => il.Emit(OpCodes.Sizeof, type);
-
-        /// <summary>
-        /// Emits a set of IL instructions which will produce the equivalent of a typeof(T) call, placing it onto the
-        /// evaluation stack.
-        /// </summary>
-        /// <typeparam name="T">The type to be emitted.</typeparam>
-        /// <param name="il">The generator where the IL is to be emitted.</param>.
-        [PublicAPI]
-        public static void EmitTypeOf<T>(this ILGenerator il)
-            => il.EmitTypeOf(typeof(T));
-
-        /// <summary>
-        /// Emits a set of IL instructions which will produce the equivalent of a typeof(T) call, placing it onto the
-        /// evaluation stack.
-        /// </summary>
-        /// <param name="il">The generator where the IL is to be emitted.</param>
-        /// <param name="type">The type to be emitted.</param>
-        [PublicAPI]
-        public static void EmitTypeOf(this ILGenerator il, Type type)
-        {
             il.EmitLoadToken(type);
             il.EmitCallDirect<Type>(nameof(Type.GetTypeFromHandle), typeof(RuntimeTypeHandle));
         }
-    }
 }
