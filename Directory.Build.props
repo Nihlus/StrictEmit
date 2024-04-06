@@ -2,6 +2,7 @@
     <PropertyGroup>
         <LegalAuthor>Jarl Gullberg</LegalAuthor>
         <LegalEmail>jarl.gullberg@gmail.com</LegalEmail>
+        <LegalLicense>GPL-3.0-or-later</LegalLicense>
         <UseSPDXFileHeaders>true</UseSPDXFileHeaders>
     </PropertyGroup>
 
