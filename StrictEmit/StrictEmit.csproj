@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Remora.Sdk">
     <PropertyGroup>
-        <LibraryFrameworks>$(LibraryFrameworks);net45</LibraryFrameworks>
-        <NetStandardFrameworks>netstandard2.0;netstandard2.1</NetStandardFrameworks>
+        <LibraryFrameworks>$(LibraryFrameworks);netstandard2.0;net45</LibraryFrameworks>
     </PropertyGroup>
 
     <PropertyGroup>
