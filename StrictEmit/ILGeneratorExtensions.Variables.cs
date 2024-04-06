@@ -22,7 +22,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="argumentIndex">The argument index.</param>
         [PublicAPI]
-        public static void EmitLoadArgument([NotNull] this ILGenerator il, short argumentIndex)
+        public static void EmitLoadArgument(this ILGenerator il, short argumentIndex)
         {
             switch (argumentIndex)
             {
@@ -68,7 +68,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="argumentIndex">The argument index.</param>
         [PublicAPI]
-        public static void EmitLoadArgumentAddress([NotNull] this ILGenerator il, short argumentIndex)
+        public static void EmitLoadArgumentAddress(this ILGenerator il, short argumentIndex)
         {
             if (argumentIndex >= 0 && argumentIndex <= 255)
             {
@@ -86,7 +86,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="field">The field.</param>
         [PublicAPI]
-        public static void EmitLoadField([NotNull] this ILGenerator il, [NotNull] FieldInfo field)
+        public static void EmitLoadField(this ILGenerator il, FieldInfo field)
             => il.Emit(OpCodes.Ldfld, field);
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="field">The field.</param>
         [PublicAPI]
-        public static void EmitLoadFieldAddress([NotNull] this ILGenerator il, [NotNull] FieldInfo field)
+        public static void EmitLoadFieldAddress(this ILGenerator il, FieldInfo field)
             => il.Emit(OpCodes.Ldflda, field);
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="localIndex">The index of the local variable.</param>
         [PublicAPI]
-        public static void EmitLoadLocalVariable([NotNull] this ILGenerator il, short localIndex)
+        public static void EmitLoadLocalVariable(this ILGenerator il, short localIndex)
         {
             switch (localIndex)
             {
@@ -154,7 +154,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="local">The local variable.</param>
         [PublicAPI]
-        public static void EmitLoadLocalVariable([NotNull] this ILGenerator il, [NotNull] LocalBuilder local)
+        public static void EmitLoadLocalVariable(this ILGenerator il, LocalBuilder local)
             => il.EmitLoadLocalVariable((short)local.LocalIndex);
 
         /// <summary>
@@ -164,7 +164,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="localIndex">The index of the variable.</param>
         [PublicAPI]
-        public static void EmitLoadLocalVariableAddress([NotNull] this ILGenerator il, short localIndex)
+        public static void EmitLoadLocalVariableAddress(this ILGenerator il, short localIndex)
         {
             if (localIndex >= 0 && localIndex <= 255)
             {
@@ -186,7 +186,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="local">The local variable.</param>
         [PublicAPI]
-        public static void EmitLoadLocalVariableAddress([NotNull] this ILGenerator il, [NotNull] LocalBuilder local)
+        public static void EmitLoadLocalVariableAddress(this ILGenerator il, LocalBuilder local)
             => il.EmitLoadLocalVariableAddress((short)local.LocalIndex);
 
         /// <summary>
@@ -195,7 +195,7 @@ namespace StrictEmit
         /// <typeparam name="T">The type of object to load.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitLoadObject<T>([NotNull] this ILGenerator il)
+        public static void EmitLoadObject<T>(this ILGenerator il)
             => il.EmitLoadObject(typeof(T));
 
         /// <summary>
@@ -204,7 +204,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="valueType">The type of object to load.</param>
         [PublicAPI]
-        public static void EmitLoadObject([NotNull] this ILGenerator il, [NotNull] Type valueType)
+        public static void EmitLoadObject(this ILGenerator il, Type valueType)
             => il.Emit(OpCodes.Ldobj, valueType);
 
         /// <summary>
@@ -213,7 +213,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="field">The field.</param>
         [PublicAPI]
-        public static void EmitLoadStaticField([NotNull] this ILGenerator il, [NotNull] FieldInfo field)
+        public static void EmitLoadStaticField(this ILGenerator il, FieldInfo field)
         {
             if (!field.IsStatic)
             {
@@ -229,7 +229,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="field">The field.</param>
         [PublicAPI]
-        public static void EmitLoadStaticFieldAddress([NotNull] this ILGenerator il, [NotNull] FieldInfo field)
+        public static void EmitLoadStaticFieldAddress(this ILGenerator il, FieldInfo field)
         {
             if (!field.IsStatic)
             {
@@ -246,7 +246,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="argumentIndex">The index of the argument.</param>
         [PublicAPI]
-        public static void EmitStoreArgument([NotNull] this ILGenerator il, short argumentIndex)
+        public static void EmitStoreArgument(this ILGenerator il, short argumentIndex)
         {
             if (argumentIndex >= 0 && argumentIndex <= 255)
             {
@@ -264,7 +264,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="field">The field.</param>
         [PublicAPI]
-        public static void EmitSetField([NotNull] this ILGenerator il, [NotNull] FieldInfo field)
+        public static void EmitSetField(this ILGenerator il, FieldInfo field)
             => il.Emit(OpCodes.Stfld, field);
 
         /// <summary>
@@ -274,7 +274,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="localIndex">The index of the local variable.</param>
         [PublicAPI]
-        public static void EmitSetLocalVariable([NotNull] this ILGenerator il, short localIndex)
+        public static void EmitSetLocalVariable(this ILGenerator il, short localIndex)
         {
             switch (localIndex)
             {
@@ -323,7 +323,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="local">The local variable.</param>
         [PublicAPI]
-        public static void EmitSetLocalVariable([NotNull] this ILGenerator il, [NotNull] LocalBuilder local)
+        public static void EmitSetLocalVariable(this ILGenerator il, LocalBuilder local)
             => il.EmitSetLocalVariable((short)local.LocalIndex);
 
         /// <summary>
@@ -332,7 +332,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="field">The field.</param>
         [PublicAPI]
-        public static void EmitSetStaticField([NotNull] this ILGenerator il, [NotNull] FieldInfo field)
+        public static void EmitSetStaticField(this ILGenerator il, FieldInfo field)
             => il.Emit(OpCodes.Stsfld, field);
 
         /// <summary>
@@ -344,7 +344,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitUnalignedPrefix([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitUnalignedPrefix(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Unaligned, instruction);
 
         /// <summary>
@@ -356,7 +356,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="offset">The instruction offset.</param>
         [PublicAPI]
-        public static void EmitUnalignedPrefix([NotNull] this ILGenerator il, byte offset)
+        public static void EmitUnalignedPrefix(this ILGenerator il, byte offset)
             => il.Emit(OpCodes.Unaligned, offset);
 
         /// <summary>
@@ -366,8 +366,8 @@ namespace StrictEmit
         /// <param name="il">The generator where the local is to be declared.</param>
         /// <param name="pinned">true to pin the object in memory; otherwise, false.</param>
         /// <returns>The LocalBuilder declared with type T.</returns>
-        [PublicAPI, NotNull]
-        public static LocalBuilder DeclareLocal<T>([NotNull] this ILGenerator il, bool pinned = false)
+        [PublicAPI]
+        public static LocalBuilder DeclareLocal<T>(this ILGenerator il, bool pinned = false)
             => il.DeclareLocal(typeof(T), pinned);
     }
 }

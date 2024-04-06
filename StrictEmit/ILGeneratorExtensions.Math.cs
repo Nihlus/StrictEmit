@@ -16,7 +16,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitAdd([NotNull] this ILGenerator il)
+        public static void EmitAdd(this ILGenerator il)
             => il.Emit(OpCodes.Add);
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitAddChecked([NotNull] this ILGenerator il)
+        public static void EmitAddChecked(this ILGenerator il)
             => il.Emit(OpCodes.Add_Ovf);
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitUnsignedAddChecked([NotNull] this ILGenerator il)
+        public static void EmitUnsignedAddChecked(this ILGenerator il)
             => il.Emit(OpCodes.Add_Ovf_Un);
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitAnd([NotNull] this ILGenerator il)
+        public static void EmitAnd(this ILGenerator il)
             => il.Emit(OpCodes.And);
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitCompareEqual([NotNull] this ILGenerator il)
+        public static void EmitCompareEqual(this ILGenerator il)
             => il.Emit(OpCodes.Ceq);
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitCompareGreaterThan([NotNull] this ILGenerator il)
+        public static void EmitCompareGreaterThan(this ILGenerator il)
             => il.Emit(OpCodes.Cgt);
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitCompareGreaterThanUnsigned([NotNull] this ILGenerator il)
+        public static void EmitCompareGreaterThanUnsigned(this ILGenerator il)
             => il.Emit(OpCodes.Cgt_Un);
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitCheckIsFinite([NotNull] this ILGenerator il)
+        public static void EmitCheckIsFinite(this ILGenerator il)
             => il.Emit(OpCodes.Ckfinite);
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitCompareLessThan([NotNull] this ILGenerator il)
+        public static void EmitCompareLessThan(this ILGenerator il)
             => il.Emit(OpCodes.Clt);
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitCompareLessThanUnsigned([NotNull] this ILGenerator il)
+        public static void EmitCompareLessThanUnsigned(this ILGenerator il)
             => il.Emit(OpCodes.Clt_Un);
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitDivide([NotNull] this ILGenerator il)
+        public static void EmitDivide(this ILGenerator il)
             => il.Emit(OpCodes.Div);
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitDivideUnsigned([NotNull] this ILGenerator il)
+        public static void EmitDivideUnsigned(this ILGenerator il)
             => il.Emit(OpCodes.Div_Un);
 
         /// <summary>
@@ -125,7 +125,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitSubtract([NotNull] this ILGenerator il)
+        public static void EmitSubtract(this ILGenerator il)
             => il.Emit(OpCodes.Sub);
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitSubtractChecked([NotNull] this ILGenerator il)
+        public static void EmitSubtractChecked(this ILGenerator il)
             => il.Emit(OpCodes.Sub_Ovf);
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitUnsignedSubtractChecked([NotNull] this ILGenerator il)
+        public static void EmitUnsignedSubtractChecked(this ILGenerator il)
             => il.Emit(OpCodes.Sub_Ovf_Un);
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitShiftLeft([NotNull] this ILGenerator il)
+        public static void EmitShiftLeft(this ILGenerator il)
             => il.Emit(OpCodes.Shl);
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitShiftRight([NotNull] this ILGenerator il)
+        public static void EmitShiftRight(this ILGenerator il)
             => il.Emit(OpCodes.Shr);
 
         /// <summary>
@@ -170,7 +170,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitShiftRightUnsigned([NotNull] this ILGenerator il)
+        public static void EmitShiftRightUnsigned(this ILGenerator il)
             => il.Emit(OpCodes.Shr_Un);
 
         /// <summary>
@@ -178,7 +178,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitRemainder([NotNull] this ILGenerator il)
+        public static void EmitRemainder(this ILGenerator il)
             => il.Emit(OpCodes.Rem);
 
         /// <summary>
@@ -186,7 +186,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitRemainderUnsigned([NotNull] this ILGenerator il)
+        public static void EmitRemainderUnsigned(this ILGenerator il)
             => il.Emit(OpCodes.Rem_Un);
 
         /// <summary>
@@ -195,7 +195,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitBitwiseNot([NotNull] this ILGenerator il)
+        public static void EmitBitwiseNot(this ILGenerator il)
             => il.Emit(OpCodes.Not);
 
         /// <summary>
@@ -204,7 +204,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitBitwiseOr([NotNull] this ILGenerator il)
+        public static void EmitBitwiseOr(this ILGenerator il)
             => il.Emit(OpCodes.Or);
 
         /// <summary>
@@ -213,7 +213,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitBitwiseXor([NotNull] this ILGenerator il)
+        public static void EmitBitwiseXor(this ILGenerator il)
             => il.Emit(OpCodes.Xor);
 
         /// <summary>
@@ -221,7 +221,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitMultiply([NotNull] this ILGenerator il)
+        public static void EmitMultiply(this ILGenerator il)
             => il.Emit(OpCodes.Mul);
 
         /// <summary>
@@ -229,7 +229,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitMultiplyChecked([NotNull] this ILGenerator il)
+        public static void EmitMultiplyChecked(this ILGenerator il)
             => il.Emit(OpCodes.Mul_Ovf);
 
         /// <summary>
@@ -238,7 +238,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitUnsignedMultiplyChecked([NotNull] this ILGenerator il)
+        public static void EmitUnsignedMultiplyChecked(this ILGenerator il)
             => il.Emit(OpCodes.Mul_Ovf_Un);
 
         /// <summary>
@@ -246,7 +246,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitNegate([NotNull] this ILGenerator il)
+        public static void EmitNegate(this ILGenerator il)
             => il.Emit(OpCodes.Neg);
     }
 }

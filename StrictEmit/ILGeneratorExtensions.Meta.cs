@@ -19,7 +19,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="argumentIndex">The index of the argument to get.</param>
         [PublicAPI]
-        public static void EmitGetCurrentMethodArgumentByIndex([NotNull] this ILGenerator il, int argumentIndex)
+        public static void EmitGetCurrentMethodArgumentByIndex(this ILGenerator il, int argumentIndex)
         {
             if (argumentIndex == 0)
             {
@@ -38,7 +38,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="parameterIndex">The index of the parameter to get in the parameter array.</param>
         [PublicAPI]
-        public static void EmitGetCurrentMethodParameterByIndex([NotNull] this ILGenerator il, int parameterIndex)
+        public static void EmitGetCurrentMethodParameterByIndex(this ILGenerator il, int parameterIndex)
         {
             il.EmitCallDirect<MethodBase>(nameof(MethodBase.GetCurrentMethod));
             il.EmitCallVirtual<MethodBase>(nameof(MethodBase.GetParameters));
@@ -52,7 +52,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitGetCurrentMethodReturnParameter([NotNull] this ILGenerator il)
+        public static void EmitGetCurrentMethodReturnParameter(this ILGenerator il)
         {
             // ReSharper disable once PossibleNullReferenceException
             var getReturnParamFunc = typeof(MethodInfo).GetProperty(nameof(MethodInfo.ReturnParameter), BindingFlags.Public | BindingFlags.Instance).GetMethod;

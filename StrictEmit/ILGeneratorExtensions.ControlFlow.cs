@@ -18,7 +18,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitBranchIfEqual([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitBranchIfEqual(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Beq, instruction);
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitShortBranchIfEqual([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitShortBranchIfEqual(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Beq_S, instruction);
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitBranchGreaterThanOrEqual([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitBranchGreaterThanOrEqual(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Bge, instruction);
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitShortBranchGreaterThanOrEqual([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitShortBranchGreaterThanOrEqual(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Bge_S, instruction);
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitBranchGreaterThanOrEqualUnsigned([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitBranchGreaterThanOrEqualUnsigned(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Bge_Un, instruction);
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitShortBranchGreaterThanOrEqualUnsigned([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitShortBranchGreaterThanOrEqualUnsigned(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Bge_Un_S, instruction);
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitBranchGreaterThan([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitBranchGreaterThan(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Bgt, instruction);
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitShortBranchGreaterThan([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitShortBranchGreaterThan(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Bgt_S, instruction);
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitBranchGreaterThanUnsigned([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitBranchGreaterThanUnsigned(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Bgt_Un, instruction);
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitShortBranchGreaterThanUnsigned([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitShortBranchGreaterThanUnsigned(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Bgt_Un_S, instruction);
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitBranchLessThanOrEqual([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitBranchLessThanOrEqual(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Ble, instruction);
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitShortBranchLessThanOrEqual([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitShortBranchLessThanOrEqual(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Ble_S, instruction);
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitBranchLessThanOrEqualUnsigned([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitBranchLessThanOrEqualUnsigned(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Ble_Un, instruction);
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitShortBranchLessThanOrEqualUnsigned([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitShortBranchLessThanOrEqualUnsigned(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Ble_Un_S, instruction);
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitBranchLessThan([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitBranchLessThan(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Blt, instruction);
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitShortBranchLessThan([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitShortBranchLessThan(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Blt_S, instruction);
 
         /// <summary>
@@ -171,7 +171,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitBranchLessThanUnsigned([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitBranchLessThanUnsigned(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Blt_Un, instruction);
 
         /// <summary>
@@ -181,7 +181,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitShortBranchLessThanUnsigned([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitShortBranchLessThanUnsigned(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Blt_Un_S, instruction);
 
         /// <summary>
@@ -191,7 +191,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitBranchNotEqualUnsigned([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitBranchNotEqualUnsigned(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Bne_Un, instruction);
 
         /// <summary>
@@ -201,7 +201,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitShortBranchNotEqualUnsigned([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitShortBranchNotEqualUnsigned(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Bne_Un_S, instruction);
 
         /// <summary>
@@ -210,7 +210,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitEndFilter([NotNull] this ILGenerator il)
+        public static void EmitEndFilter(this ILGenerator il)
             => il.Emit(OpCodes.Endfilter);
 
         /// <summary>
@@ -219,7 +219,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitEndFinally([NotNull] this ILGenerator il)
+        public static void EmitEndFinally(this ILGenerator il)
             => il.Emit(OpCodes.Endfinally);
 
         /// <summary>
@@ -228,7 +228,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitBranch([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitBranch(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Br, instruction);
 
         /// <summary>
@@ -237,7 +237,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitShortBranch([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitShortBranch(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Br_S, instruction);
 
         /// <summary>
@@ -247,7 +247,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitBranchFalse([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitBranchFalse(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Brfalse, instruction);
 
         /// <summary>
@@ -257,7 +257,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitShortBranchFalse([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitShortBranchFalse(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Brfalse_S, instruction);
 
         /// <summary>
@@ -266,7 +266,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitBranchTrue([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitBranchTrue(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Brtrue, instruction);
 
         /// <summary>
@@ -276,7 +276,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instruction">The instruction.</param>
         [PublicAPI]
-        public static void EmitShortBranchTrue([NotNull] this ILGenerator il, Label instruction)
+        public static void EmitShortBranchTrue(this ILGenerator il, Label instruction)
             => il.Emit(OpCodes.Brtrue_S, instruction);
 
         /// <summary>
@@ -285,7 +285,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="method">The method.</param>
         [PublicAPI]
-        public static void EmitJump([NotNull] this ILGenerator il, [NotNull] MethodInfo method)
+        public static void EmitJump(this ILGenerator il, MethodInfo method)
             => il.Emit(OpCodes.Jmp, method);
 
         /// <summary>
@@ -294,7 +294,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instructionToExitAt">The instruction.</param>
         [PublicAPI]
-        public static void EmitLeaveProtectedRegion([NotNull] this ILGenerator il, Label instructionToExitAt)
+        public static void EmitLeaveProtectedRegion(this ILGenerator il, Label instructionToExitAt)
             => il.Emit(OpCodes.Leave, instructionToExitAt);
 
         /// <summary>
@@ -303,7 +303,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="instructionToExitAt">The instruction.</param>
         [PublicAPI]
-        public static void EmitShortLeaveProtectedRegion([NotNull] this ILGenerator il, Label instructionToExitAt)
+        public static void EmitShortLeaveProtectedRegion(this ILGenerator il, Label instructionToExitAt)
             => il.Emit(OpCodes.Leave_S, instructionToExitAt);
 
         /// <summary>
@@ -311,7 +311,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitReturn([NotNull] this ILGenerator il)
+        public static void EmitReturn(this ILGenerator il)
             => il.Emit(OpCodes.Ret);
 
         /// <summary>
@@ -319,7 +319,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitRethrow([NotNull] this ILGenerator il)
+        public static void EmitRethrow(this ILGenerator il)
             => il.Emit(OpCodes.Rethrow);
 
         /// <summary>
@@ -328,7 +328,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitTailcall([NotNull] this ILGenerator il)
+        public static void EmitTailcall(this ILGenerator il)
             => il.Emit(OpCodes.Tailcall);
 
         /// <summary>
@@ -336,7 +336,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitThrow([NotNull] this ILGenerator il)
+        public static void EmitThrow(this ILGenerator il)
             => il.Emit(OpCodes.Throw);
 
         /// <summary>
@@ -345,7 +345,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="jumpTable">The table of jump labels.</param>
         [PublicAPI]
-        public static void EmitSwitch([NotNull] this ILGenerator il, [NotNull] Label[] jumpTable)
+        public static void EmitSwitch(this ILGenerator il, Label[] jumpTable)
             => il.Emit(OpCodes.Switch, jumpTable);
     }
 }

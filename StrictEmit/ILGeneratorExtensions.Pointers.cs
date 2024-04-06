@@ -20,7 +20,7 @@ namespace StrictEmit
         /// <typeparam name="T">The type of the object to store.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitSet<T>([NotNull] this ILGenerator il)
+        public static void EmitSet<T>(this ILGenerator il)
             => il.EmitSet(typeof(T));
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="type">The type of the object to store.</param>
         [PublicAPI]
-        public static void EmitSet([NotNull] this ILGenerator il, [NotNull] Type type)
+        public static void EmitSet(this ILGenerator il, Type type)
         {
             switch (type)
             {
@@ -91,7 +91,7 @@ namespace StrictEmit
         /// <typeparam name="T">The type.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitDereferencePointer<T>([NotNull] this ILGenerator il)
+        public static void EmitDereferencePointer<T>(this ILGenerator il)
             => il.EmitLoad<T>();
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="typeToDereference">The type.</param>
         [PublicAPI]
-        public static void EmitDereferencePointer([NotNull] this ILGenerator il, [NotNull] Type typeToDereference)
+        public static void EmitDereferencePointer(this ILGenerator il, Type typeToDereference)
             => il.EmitLoad(typeToDereference);
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace StrictEmit
         /// <typeparam name="T">The type.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitLoad<T>([NotNull] this ILGenerator il)
+        public static void EmitLoad<T>(this ILGenerator il)
             => il.EmitLoad(typeof(T));
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="typeToLoad">The type.</param>
         [PublicAPI]
-        public static void EmitLoad([NotNull] this ILGenerator il, [NotNull] Type typeToLoad)
+        public static void EmitLoad(this ILGenerator il, Type typeToLoad)
         {
             switch (typeToLoad)
             {
@@ -192,7 +192,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitRefAnyType([NotNull] this ILGenerator il)
+        public static void EmitRefAnyType(this ILGenerator il)
             => il.Emit(OpCodes.Refanytype);
 
         /// <summary>
@@ -201,7 +201,7 @@ namespace StrictEmit
         /// <typeparam name="T">The type.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitRefAnyVal<T>([NotNull] this ILGenerator il)
+        public static void EmitRefAnyVal<T>(this ILGenerator il)
             => il.EmitRefAnyVal(typeof(T));
 
         /// <summary>
@@ -210,7 +210,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="refType">The type of the reference.</param>
         [PublicAPI]
-        public static void EmitRefAnyVal([NotNull] this ILGenerator il, [NotNull] Type refType)
+        public static void EmitRefAnyVal(this ILGenerator il, Type refType)
             => il.Emit(OpCodes.Refanyval, refType);
 
         /// <summary>
@@ -219,7 +219,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitLocalAllocateBytes([NotNull] this ILGenerator il)
+        public static void EmitLocalAllocateBytes(this ILGenerator il)
             => il.Emit(OpCodes.Localloc);
 
         /// <summary>
@@ -228,7 +228,7 @@ namespace StrictEmit
         /// <typeparam name="T">The type.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitMakeReferenceOfType<T>([NotNull] this ILGenerator il)
+        public static void EmitMakeReferenceOfType<T>(this ILGenerator il)
             => il.EmitMakeReferenceOfType(typeof(T));
 
         /// <summary>
@@ -237,7 +237,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="type">The type to create a reference to.</param>
         [PublicAPI]
-        public static void EmitMakeReferenceOfType([NotNull] this ILGenerator il, [NotNull] Type type)
+        public static void EmitMakeReferenceOfType(this ILGenerator il, Type type)
             => il.Emit(OpCodes.Mkrefany, type);
     }
 }

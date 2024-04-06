@@ -16,7 +16,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToNativeInt([NotNull] this ILGenerator il)
+        public static void EmitConvertToNativeInt(this ILGenerator il)
             => il.Emit(OpCodes.Conv_I);
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToByte([NotNull] this ILGenerator il)
+        public static void EmitConvertToByte(this ILGenerator il)
             => il.Emit(OpCodes.Conv_I1);
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToShort([NotNull] this ILGenerator il)
+        public static void EmitConvertToShort(this ILGenerator il)
             => il.Emit(OpCodes.Conv_I2);
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToInt([NotNull] this ILGenerator il)
+        public static void EmitConvertToInt(this ILGenerator il)
             => il.Emit(OpCodes.Conv_I4);
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToLong([NotNull] this ILGenerator il)
+        public static void EmitConvertToLong(this ILGenerator il)
             => il.Emit(OpCodes.Conv_I8);
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToNativeIntChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertToNativeIntChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_I);
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToByteChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertToByteChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_I1);
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToShortChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertToShortChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_I2);
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToIntChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertToIntChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_I4);
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToLongChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertToLongChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_I8);
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertUnsignedToNativeIntChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertUnsignedToNativeIntChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_I_Un);
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertUnsignedToByteChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertUnsignedToByteChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_I1_Un);
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertUnsignedToShortChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertUnsignedToShortChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_I2_Un);
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertUnsignedToIntChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertUnsignedToIntChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_I4_Un);
 
         /// <summary>
@@ -154,7 +154,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertUnsignedToLongChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertUnsignedToLongChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_I8_Un);
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToUnsignedNativeInt([NotNull] this ILGenerator il)
+        public static void EmitConvertToUnsignedNativeInt(this ILGenerator il)
             => il.Emit(OpCodes.Conv_U);
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToUByte([NotNull] this ILGenerator il)
+        public static void EmitConvertToUByte(this ILGenerator il)
             => il.Emit(OpCodes.Conv_U1);
 
         /// <summary>
@@ -181,7 +181,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToUShort([NotNull] this ILGenerator il)
+        public static void EmitConvertToUShort(this ILGenerator il)
             => il.Emit(OpCodes.Conv_U2);
 
         /// <summary>
@@ -190,7 +190,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToUInt([NotNull] this ILGenerator il)
+        public static void EmitConvertToUInt(this ILGenerator il)
             => il.Emit(OpCodes.Conv_U4);
 
         /// <summary>
@@ -199,7 +199,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToULong([NotNull] this ILGenerator il)
+        public static void EmitConvertToULong(this ILGenerator il)
             => il.Emit(OpCodes.Conv_U8);
 
         /// <summary>
@@ -209,7 +209,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToUnsignedNativeIntChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertToUnsignedNativeIntChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_U);
 
         /// <summary>
@@ -220,7 +220,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToUByteChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertToUByteChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_U1);
 
         /// <summary>
@@ -231,7 +231,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToUShortChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertToUShortChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_U2);
 
         /// <summary>
@@ -241,7 +241,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToUIntChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertToUIntChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_U4);
 
         /// <summary>
@@ -251,7 +251,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToULongChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertToULongChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_U8);
 
         /// <summary>
@@ -261,7 +261,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertUnsignedToUnsignedNativeIntChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertUnsignedToUnsignedNativeIntChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_U_Un);
 
         /// <summary>
@@ -272,7 +272,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertUnsignedToUByteChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertUnsignedToUByteChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_U1_Un);
 
         /// <summary>
@@ -283,7 +283,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertUnsignedToUShortChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertUnsignedToUShortChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_U2_Un);
 
         /// <summary>
@@ -293,7 +293,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertUnsignedToUIntChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertUnsignedToUIntChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_U4_Un);
 
         /// <summary>
@@ -303,7 +303,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertUnsignedToULongChecked([NotNull] this ILGenerator il)
+        public static void EmitConvertUnsignedToULongChecked(this ILGenerator il)
             => il.Emit(OpCodes.Conv_Ovf_U8_Un);
 
         /// <summary>
@@ -311,7 +311,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToFloat([NotNull] this ILGenerator il)
+        public static void EmitConvertToFloat(this ILGenerator il)
             => il.Emit(OpCodes.Conv_R4);
 
         /// <summary>
@@ -319,7 +319,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertToDouble([NotNull] this ILGenerator il)
+        public static void EmitConvertToDouble(this ILGenerator il)
             => il.Emit(OpCodes.Conv_R8);
 
         /// <summary>
@@ -327,7 +327,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitConvertUnsignedIntegerToFloat([NotNull] this ILGenerator il)
+        public static void EmitConvertUnsignedIntegerToFloat(this ILGenerator il)
             => il.Emit(OpCodes.Conv_R_Un);
     }
 }

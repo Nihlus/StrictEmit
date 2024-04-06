@@ -23,9 +23,9 @@ namespace StrictEmit
         [PublicAPI]
         public static void EmitSetProperty
         (
-            [NotNull] this ILGenerator il,
-            [NotNull] Type containingType,
-            [NotNull] string propertyName,
+            this ILGenerator il,
+            Type containingType,
+            string propertyName,
             BindingFlags flags
         )
         {
@@ -55,9 +55,9 @@ namespace StrictEmit
         [PublicAPI]
         public static void EmitSetProperty
         (
-            [NotNull] this ILGenerator il,
-            [NotNull] Type containingType,
-            [NotNull] string propertyName
+            this ILGenerator il,
+            Type containingType,
+            string propertyName
         )
         => il.EmitSetProperty(containingType, propertyName, BindingFlags.Instance | BindingFlags.Public);
 
@@ -68,7 +68,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="propertyName">The name of the property.</param>
         [PublicAPI]
-        public static void EmitSetProperty<T>([NotNull] this ILGenerator il, [NotNull] string propertyName)
+        public static void EmitSetProperty<T>(this ILGenerator il, string propertyName)
             => EmitSetProperty(il, typeof(T), propertyName);
 
         /// <summary>
@@ -81,8 +81,8 @@ namespace StrictEmit
         [PublicAPI]
         public static void EmitSetProperty<T>
         (
-            [NotNull] this ILGenerator il,
-            [NotNull] string propertyName,
+            this ILGenerator il,
+            string propertyName,
             BindingFlags flags
         )
         => EmitSetProperty(il, typeof(T), propertyName, flags);
@@ -97,9 +97,9 @@ namespace StrictEmit
         [PublicAPI]
         public static void EmitGetProperty
         (
-            [NotNull] this ILGenerator il,
-            [NotNull] Type containingType,
-            [NotNull] string propertyName,
+            this ILGenerator il,
+            Type containingType,
+            string propertyName,
             BindingFlags flags
         )
         {
@@ -129,9 +129,9 @@ namespace StrictEmit
         [PublicAPI]
         public static void EmitGetProperty
         (
-            [NotNull] this ILGenerator il,
-            [NotNull] Type containingType,
-            [NotNull] string propertyName
+            this ILGenerator il,
+            Type containingType,
+            string propertyName
         )
             => il.EmitGetProperty(containingType, propertyName, BindingFlags.Instance | BindingFlags.Public);
 
@@ -142,7 +142,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="propertyName">The name of the property.</param>
         [PublicAPI]
-        public static void EmitGetProperty<T>([NotNull] this ILGenerator il, [NotNull] string propertyName)
+        public static void EmitGetProperty<T>(this ILGenerator il, string propertyName)
             => EmitGetProperty(il, typeof(T), propertyName);
 
         /// <summary>
@@ -155,8 +155,8 @@ namespace StrictEmit
         [PublicAPI]
         public static void EmitGetProperty<T>
         (
-            [NotNull] this ILGenerator il,
-            [NotNull] string propertyName,
+            this ILGenerator il,
+            string propertyName,
             BindingFlags flags
         )
         => EmitGetProperty(il, typeof(T), propertyName, flags);

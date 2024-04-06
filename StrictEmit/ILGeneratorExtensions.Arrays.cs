@@ -21,7 +21,7 @@ namespace StrictEmit
         /// <typeparam name="T">The element type of the array.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitLoadArrayElement<T>([NotNull] this ILGenerator il)
+        public static void EmitLoadArrayElement<T>(this ILGenerator il)
             => il.EmitLoadArrayElement(typeof(T));
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="arrayElementType">The element type of the array.</param>
         [PublicAPI]
-        public static void EmitLoadArrayElement([NotNull] this ILGenerator il, [NotNull] Type arrayElementType)
+        public static void EmitLoadArrayElement(this ILGenerator il, Type arrayElementType)
         {
             switch (arrayElementType)
             {
@@ -105,7 +105,7 @@ namespace StrictEmit
         /// <typeparam name="T">The element type of the array.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitLoadArrayElementAddress<T>([NotNull] this ILGenerator il)
+        public static void EmitLoadArrayElementAddress<T>(this ILGenerator il)
             => il.EmitLoadArrayElementAddress(typeof(T));
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="arrayElementType">The element type of the array.</param>
         [PublicAPI]
-        public static void EmitLoadArrayElementAddress([NotNull] this ILGenerator il, [NotNull] Type arrayElementType)
+        public static void EmitLoadArrayElementAddress(this ILGenerator il, Type arrayElementType)
             => il.Emit(OpCodes.Ldelema, arrayElementType);
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitLoadArrayLength([NotNull] this ILGenerator il)
+        public static void EmitLoadArrayLength(this ILGenerator il)
             => il.Emit(OpCodes.Ldlen);
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace StrictEmit
         /// <param name="elementType">The element type of the array.</param>
         /// <param name="elementCount">The number of elements in the array.</param>
         [PublicAPI]
-        public static void EmitNewArray([NotNull] this ILGenerator il, [NotNull] Type elementType, int elementCount)
+        public static void EmitNewArray(this ILGenerator il, Type elementType, int elementCount)
         {
             il.EmitConstantInt(elementCount);
             il.EmitNewArray(elementType);
@@ -148,7 +148,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="elementCount">The number of elements in the array.</param>
         [PublicAPI]
-        public static void EmitNewArray<T>([NotNull] this ILGenerator il, int elementCount)
+        public static void EmitNewArray<T>(this ILGenerator il, int elementCount)
             => il.EmitNewArray(typeof(T), elementCount);
 
         /// <summary>
@@ -158,7 +158,7 @@ namespace StrictEmit
         /// <typeparam name="T">The element type of the array.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitNewArray<T>([NotNull] this ILGenerator il)
+        public static void EmitNewArray<T>(this ILGenerator il)
             => il.EmitNewArray(typeof(T));
 
         /// <summary>
@@ -168,7 +168,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="arrayElementType">The element type of the array.</param>
         [PublicAPI]
-        public static void EmitNewArray([NotNull] this ILGenerator il, [NotNull] Type arrayElementType)
+        public static void EmitNewArray(this ILGenerator il, Type arrayElementType)
             => il.Emit(OpCodes.Newarr, arrayElementType);
 
         /// <summary>
@@ -179,7 +179,7 @@ namespace StrictEmit
         /// <typeparam name="T">The element type of the array.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitSetArrayElement<T>([NotNull] this ILGenerator il)
+        public static void EmitSetArrayElement<T>(this ILGenerator il)
             => il.EmitSetArrayElement(typeof(T));
 
         /// <summary>
@@ -190,7 +190,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="arrayElementType">The element type of the array.</param>
         [PublicAPI]
-        public static void EmitSetArrayElement([NotNull] this ILGenerator il, [NotNull] Type arrayElementType)
+        public static void EmitSetArrayElement(this ILGenerator il, Type arrayElementType)
         {
             switch (arrayElementType)
             {
@@ -248,7 +248,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitReadonlyArrayAddressAccessPrefix([NotNull] this ILGenerator il)
+        public static void EmitReadonlyArrayAddressAccessPrefix(this ILGenerator il)
             => il.Emit(OpCodes.Readonly);
     }
 }

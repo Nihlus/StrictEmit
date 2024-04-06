@@ -28,7 +28,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="parameterTypes">The parameter types of the constructor.</param>
         /// <exception cref="EntryPointNotFoundException">Thrown if no matching constructor can be found.</exception>
-        public static void EmitCallConstructorDirect<T>([NotNull] this ILGenerator il, params Type[] parameterTypes)
+        public static void EmitCallConstructorDirect<T>(this ILGenerator il, params Type[] parameterTypes)
         {
             var type = typeof(T);
             var constructor = type.GetConstructor(parameterTypes);
@@ -48,7 +48,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="parameterTypes">The parameter types of the constructor.</param>
         /// <exception cref="EntryPointNotFoundException">Thrown if no matching constructor can be found.</exception>
-        public static void EmitCallConstructorVirtual<T>([NotNull] this ILGenerator il, params Type[] parameterTypes)
+        public static void EmitCallConstructorVirtual<T>(this ILGenerator il, params Type[] parameterTypes)
         {
             var type = typeof(T);
             var constructor = type.GetConstructor(parameterTypes);
@@ -75,11 +75,11 @@ namespace StrictEmit
         /// <param name="optionalParameterTypes">The optional parameter types of the managed function pointer.</param>
         public static void EmitCallIndirect
         (
-            [NotNull] this ILGenerator il,
+            this ILGenerator il,
             CallingConventions callingConventions,
-            [NotNull] Type returnType,
-            [NotNull] Type[] parameterTypes,
-            [NotNull] Type[] optionalParameterTypes
+            Type returnType,
+            Type[] parameterTypes,
+            Type[] optionalParameterTypes
         )
         {
             if (!callingConventions.HasFlag(VarArgs))
@@ -107,10 +107,10 @@ namespace StrictEmit
         /// <param name="parameterTypes">The parameter types of the managed function pointer.</param>
         public static void EmitCallIndirect
         (
-            [NotNull] this ILGenerator il,
+            this ILGenerator il,
             CallingConventions callingConventions,
             [CanBeNull] Type returnType = null,
-            [NotNull] params Type[] parameterTypes
+            params Type[] parameterTypes
         )
         {
             returnType = returnType ?? typeof(void);
@@ -135,10 +135,10 @@ namespace StrictEmit
         /// <param name="parameterTypes">The parameter types of the unmanaged function pointer.</param>
         public static void EmitCallIndirect
         (
-            [NotNull] this ILGenerator il,
+            this ILGenerator il,
             CallingConvention callingConvention,
             [CanBeNull] Type returnType = null,
-            [NotNull] params Type[] parameterTypes
+            params Type[] parameterTypes
         )
         {
             returnType = returnType ?? typeof(void);
@@ -171,9 +171,9 @@ namespace StrictEmit
         /// <exception cref="EntryPointNotFoundException">Thrown if no matching method can be found.</exception>
         public static void EmitCallDirect<T>
         (
-            [NotNull] this ILGenerator il,
-            [NotNull] string functionName,
-            [NotNull] params Type[] parameterTypes
+            this ILGenerator il,
+            string functionName,
+            params Type[] parameterTypes
         )
         {
             var type = typeof(T);
@@ -198,9 +198,9 @@ namespace StrictEmit
         /// <exception cref="EntryPointNotFoundException">Thrown if no matching method can be found.</exception>
         public static void EmitCallVirtual<T>
         (
-            [NotNull] this ILGenerator il,
-            [NotNull] string functionName,
-            [NotNull] params Type[] parameterTypes
+            this ILGenerator il,
+            string functionName,
+            params Type[] parameterTypes
         )
         {
             var type = typeof(T);
@@ -222,7 +222,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="method">The method.</param>
         [PublicAPI]
-        public static void EmitCallDirect([NotNull] this ILGenerator il, [NotNull] MethodInfo method)
+        public static void EmitCallDirect(this ILGenerator il, MethodInfo method)
             => il.Emit(OpCodes.Call, method);
 
         /// <summary>
@@ -231,7 +231,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="constructor">The constructor.</param>
         [PublicAPI]
-        public static void EmitCallDirect([NotNull] this ILGenerator il, [NotNull] ConstructorInfo constructor)
+        public static void EmitCallDirect(this ILGenerator il, ConstructorInfo constructor)
             => il.Emit(OpCodes.Call, constructor);
 
         /// <summary>
@@ -240,7 +240,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="method">The method.</param>
         [PublicAPI]
-        public static void EmitCallVirtual([NotNull] this ILGenerator il, [NotNull] MethodInfo method)
+        public static void EmitCallVirtual(this ILGenerator il, MethodInfo method)
             => il.Emit(OpCodes.Callvirt, method);
 
         /// <summary>
@@ -249,7 +249,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="constructor">The constructor.</param>
         [PublicAPI]
-        public static void EmitCallVirtual([NotNull] this ILGenerator il, [NotNull] ConstructorInfo constructor)
+        public static void EmitCallVirtual(this ILGenerator il, ConstructorInfo constructor)
             => il.Emit(OpCodes.Callvirt, constructor);
 
         /// <summary>
@@ -258,7 +258,7 @@ namespace StrictEmit
         /// <typeparam name="T">The type to cast the item on the top of the stack to.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitCastClass<T>([NotNull] this ILGenerator il)
+        public static void EmitCastClass<T>(this ILGenerator il)
             => il.EmitCastClass(typeof(T));
 
         /// <summary>
@@ -267,7 +267,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="classType">The type to cast the item on the top of the stack to.</param>
         [PublicAPI]
-        public static void EmitCastClass([NotNull] this ILGenerator il, [NotNull] Type classType)
+        public static void EmitCastClass(this ILGenerator il, Type classType)
             => il.Emit(OpCodes.Castclass, classType);
 
         /// <summary>
@@ -276,7 +276,7 @@ namespace StrictEmit
         /// <typeparam name="T">The type in which the method exists.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitCallVirtualConstrainedPrefix<T>([NotNull] this ILGenerator il)
+        public static void EmitCallVirtualConstrainedPrefix<T>(this ILGenerator il)
             => il.EmitCallVirtualConstrainedPrefix(typeof(T));
 
         /// <summary>
@@ -285,7 +285,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="typeToConstrainTo">The type in which the method exists.</param>
         [PublicAPI]
-        public static void EmitCallVirtualConstrainedPrefix([NotNull] this ILGenerator il, [NotNull] Type typeToConstrainTo)
+        public static void EmitCallVirtualConstrainedPrefix(this ILGenerator il, Type typeToConstrainTo)
             => il.Emit(OpCodes.Constrained, typeToConstrainTo);
 
         /// <summary>
@@ -295,7 +295,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="method">The method.</param>
         [PublicAPI]
-        public static void EmitLoadFunctionPointer([NotNull] this ILGenerator il, [NotNull] MethodInfo method)
+        public static void EmitLoadFunctionPointer(this ILGenerator il, MethodInfo method)
             => il.Emit(OpCodes.Ldftn, method);
 
         /// <summary>
@@ -305,7 +305,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="method">The method.</param>
         [PublicAPI]
-        public static void EmitLoadVirtualFunction([NotNull] this ILGenerator il, [NotNull] MethodInfo method)
+        public static void EmitLoadVirtualFunction(this ILGenerator il, MethodInfo method)
             => il.Emit(OpCodes.Ldvirtftn, method);
 
         /// <summary>
@@ -314,7 +314,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitVolatilePrefix([NotNull] this ILGenerator il)
+        public static void EmitVolatilePrefix(this ILGenerator il)
             => il.Emit(OpCodes.Volatile);
     }
 }

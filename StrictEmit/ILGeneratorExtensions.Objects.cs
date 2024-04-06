@@ -20,7 +20,7 @@ namespace StrictEmit
         /// <typeparam name="T">The type of object to create an instance of.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitNewObject<T>([NotNull] this ILGenerator il)
+        public static void EmitNewObject<T>(this ILGenerator il)
         {
             var parameterlessConstructor = typeof(T).GetConstructor(new Type[] { });
             if (parameterlessConstructor is null)
@@ -39,7 +39,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="parameterTypes">The parameter types that the constructor accepts.</param>
         [PublicAPI]
-        public static void EmitNewObject<T>([NotNull] this ILGenerator il, params Type[] parameterTypes)
+        public static void EmitNewObject<T>(this ILGenerator il, params Type[] parameterTypes)
         {
             var constructor = typeof(T).GetConstructor(parameterTypes);
             if (constructor is null)
@@ -60,7 +60,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="constructor">The constructor to use.</param>
         [PublicAPI]
-        public static void EmitNewObject([NotNull] this ILGenerator il, [NotNull] ConstructorInfo constructor)
+        public static void EmitNewObject(this ILGenerator il, ConstructorInfo constructor)
             => il.Emit(OpCodes.Newobj, constructor);
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace StrictEmit
         /// <typeparam name="T">The type of object to set.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitSetObject<T>([NotNull] this ILGenerator il)
+        public static void EmitSetObject<T>(this ILGenerator il)
             => il.EmitSetObject(typeof(T));
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="objectType">The type of the object.</param>
         [PublicAPI]
-        public static void EmitSetObject([NotNull] this ILGenerator il, [NotNull] Type objectType)
+        public static void EmitSetObject(this ILGenerator il, Type objectType)
             => il.Emit(OpCodes.Stobj, objectType);
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace StrictEmit
         /// <typeparam name="T">The object type to test against.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitIsInstance<T>([NotNull] this ILGenerator il)
+        public static void EmitIsInstance<T>(this ILGenerator il)
             => il.EmitIsInstance(typeof(T));
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="typeToCheck">The object type to test against.</param>
         [PublicAPI]
-        public static void EmitIsInstance([NotNull] this ILGenerator il, [NotNull] Type typeToCheck)
+        public static void EmitIsInstance(this ILGenerator il, Type typeToCheck)
             => il.Emit(OpCodes.Isinst, typeToCheck);
     }
 }

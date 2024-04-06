@@ -17,7 +17,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitBreakpoint([NotNull] this ILGenerator il)
+        public static void EmitBreakpoint(this ILGenerator il)
             => il.Emit(OpCodes.Break);
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitNoOperation([NotNull] this ILGenerator il)
+        public static void EmitNoOperation(this ILGenerator il)
             => il.Emit(OpCodes.Nop);
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace StrictEmit
         /// </summary>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitPop([NotNull] this ILGenerator il)
+        public static void EmitPop(this ILGenerator il)
             => il.Emit(OpCodes.Pop);
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace StrictEmit
         /// <typeparam name="T">The type to calculate the size of.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>
         [PublicAPI]
-        public static void EmitSizeOf<T>([NotNull] this ILGenerator il)
+        public static void EmitSizeOf<T>(this ILGenerator il)
             => il.EmitSizeOf(typeof(T));
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="type">The type to calculate the size of.</param>
         [PublicAPI]
-        public static void EmitSizeOf([NotNull] this ILGenerator il, [NotNull] Type type)
+        public static void EmitSizeOf(this ILGenerator il, Type type)
             => il.Emit(OpCodes.Sizeof, type);
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace StrictEmit
         /// <typeparam name="T">The type to be emitted.</typeparam>
         /// <param name="il">The generator where the IL is to be emitted.</param>.
         [PublicAPI]
-        public static void EmitTypeOf<T>([NotNull] this ILGenerator il)
+        public static void EmitTypeOf<T>(this ILGenerator il)
             => il.EmitTypeOf(typeof(T));
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace StrictEmit
         /// <param name="il">The generator where the IL is to be emitted.</param>
         /// <param name="type">The type to be emitted.</param>
         [PublicAPI]
-        public static void EmitTypeOf([NotNull] this ILGenerator il, [NotNull] Type type)
+        public static void EmitTypeOf(this ILGenerator il, Type type)
         {
             il.EmitLoadToken(type);
             il.EmitCallDirect<Type>(nameof(Type.GetTypeFromHandle), typeof(RuntimeTypeHandle));
