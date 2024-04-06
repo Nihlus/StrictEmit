@@ -46,7 +46,7 @@ public static partial class ILGeneratorExtensions
             }
             default:
             {
-                if (argumentIndex > 3 && argumentIndex <= 255)
+                if (argumentIndex is > 3 and <= 255)
                 {
                     il.Emit(OpCodes.Ldarg_S, (byte)argumentIndex);
                 }
@@ -68,7 +68,7 @@ public static partial class ILGeneratorExtensions
     [PublicAPI]
     public static void EmitLoadArgumentAddress(this ILGenerator il, short argumentIndex)
     {
-        if (argumentIndex >= 0 && argumentIndex <= 255)
+        if (argumentIndex is >= 0 and <= 255)
         {
             il.Emit(OpCodes.Ldarga_S, (byte)argumentIndex);
         }
@@ -129,7 +129,7 @@ public static partial class ILGeneratorExtensions
             }
             default:
             {
-                if (localIndex > 3 && localIndex <= 255)
+                if (localIndex is > 3 and <= 255)
                 {
                     il.Emit(OpCodes.Ldloc_S, (byte)localIndex);
                 }
@@ -164,7 +164,7 @@ public static partial class ILGeneratorExtensions
     [PublicAPI]
     public static void EmitLoadLocalVariableAddress(this ILGenerator il, short localIndex)
     {
-        if (localIndex >= 0 && localIndex <= 255)
+        if (localIndex is >= 0 and <= 255)
         {
             il.Emit(OpCodes.Ldloca_S, (byte)localIndex);
         }
@@ -246,7 +246,7 @@ public static partial class ILGeneratorExtensions
     [PublicAPI]
     public static void EmitStoreArgument(this ILGenerator il, short argumentIndex)
     {
-        if (argumentIndex >= 0 && argumentIndex <= 255)
+        if (argumentIndex is >= 0 and <= 255)
         {
             il.Emit(OpCodes.Starg_S, (byte)argumentIndex);
         }
@@ -298,7 +298,7 @@ public static partial class ILGeneratorExtensions
             }
             default:
             {
-                if (localIndex > 3 && localIndex <= 255)
+                if (localIndex is > 3 and <= 255)
                 {
                     il.Emit(OpCodes.Stloc_S, (byte)localIndex);
                 }

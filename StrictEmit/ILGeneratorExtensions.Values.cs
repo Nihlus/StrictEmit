@@ -176,7 +176,7 @@ public static partial class ILGeneratorExtensions
                 }
                 default:
                 {
-                    if (value > 8 && value <= 255)
+                    if (value is > 8 and <= 255)
                     {
                         il.Emit(OpCodes.Ldc_I4_S, (byte)value);
                     }
