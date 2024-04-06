@@ -4,16 +4,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "metadata", ".\", "{F1A57014
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		README.md = README.md
-		stylecop.json = stylecop.json
-		stylecop.ruleset = stylecop.ruleset
-		.travis.yml = .travis.yml
-		appveyor.yml = appveyor.yml
-	EndProjectSection
-EndProject
-
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "msbuild", ".\msbuild", "{1F056E04-1788-4B80-8736-FDBE38BAE01B}"
-	ProjectSection(SolutionItems) = preProject
-		msbuild/netfx-mono.props = msbuild/netfx-mono.props
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
 	EndProjectSection
 EndProject
 

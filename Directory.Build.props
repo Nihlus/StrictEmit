@@ -1,0 +1,28 @@
+<Project>
+    <PropertyGroup>
+        <LegalAuthor>Jarl Gullberg</LegalAuthor>
+        <LegalEmail>jarl.gullberg@gmail.com</LegalEmail>
+        <UseSPDXFileHeaders>true</UseSPDXFileHeaders>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <SolutionDir>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)/))</SolutionDir>
+    </PropertyGroup>
+
+    <!-- NuGet-related properties -->
+    <PropertyGroup>
+        <PackageId>StrictEmit</PackageId>
+        <PackageLicenseUrl>https://www.gnu.org/licenses/gpl-3.0.en.html</PackageLicenseUrl>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <PackageReleaseNotes>Fix missing parameter.</PackageReleaseNotes>
+        <PackageTags>emit;cil;cross-platform;mono;netcore;netstandard;netframework</PackageTags>
+        <PackageOutputPath>../nuget</PackageOutputPath>
+        <IncludeSymbols>True</IncludeSymbols>
+        <IncludeSource>True</IncludeSource>
+        <RepositoryUrl>https://github.com/Nihlus/StrictEmit</RepositoryUrl>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    </PropertyGroup>
+</Project>
