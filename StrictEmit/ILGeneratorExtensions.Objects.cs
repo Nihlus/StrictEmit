@@ -22,7 +22,7 @@ namespace StrictEmit
         [PublicAPI]
         public static void EmitNewObject<T>(this ILGenerator il)
         {
-            var parameterlessConstructor = typeof(T).GetConstructor(new Type[] { });
+            var parameterlessConstructor = typeof(T).GetConstructor([]);
             if (parameterlessConstructor is null)
             {
                 throw new ArgumentException($"The type {typeof(T).Name} does not contain a parameterless constructor.");
