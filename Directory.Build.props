@@ -13,9 +13,8 @@
     <!-- NuGet-related properties -->
     <PropertyGroup>
         <PackageId>StrictEmit</PackageId>
-        <PackageLicenseUrl>https://www.gnu.org/licenses/gpl-3.0.en.html</PackageLicenseUrl>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <PackageReleaseNotes>Fix missing parameter.</PackageReleaseNotes>
+        <PackageReleaseNotes>Fix default BindingFlags on EmitGet/SetProperty.</PackageReleaseNotes>
         <PackageTags>emit;cil;cross-platform;mono;netcore;netstandard;netframework</PackageTags>
         <PackageOutputPath>../nuget</PackageOutputPath>
         <IncludeSymbols>True</IncludeSymbols>
