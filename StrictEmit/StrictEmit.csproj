@@ -14,8 +14,4 @@
     <ItemGroup>
         <PackageReference Include="System.Reflection.Emit.ILGeneration" />
     </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="StrictEmit.xml" />
-    </ItemGroup>
 </Project>
