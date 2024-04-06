@@ -4,9 +4,9 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>2.7.2</Version>
+        <Version>2.9.0</Version>
         <Description>Better, stricter ILGenerator.Emit</Description>
-        
+
         <PackageReleaseNotes>Fix default BindingFlags on EmitGet/SetProperty.</PackageReleaseNotes>
         <PackageTags>emit;cil;cross-platform;mono;netcore;netstandard;netframework</PackageTags>
     </PropertyGroup>
