@@ -20,6 +20,7 @@
         <IncludeSymbols>True</IncludeSymbols>
         <IncludeSource>True</IncludeSource>
         <RepositoryUrl>https://github.com/Nihlus/StrictEmit</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/Nihlus/StrictEmit</PackageProjectUrl>
     </PropertyGroup>
 
     <PropertyGroup>
