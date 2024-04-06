@@ -170,7 +170,7 @@ public static partial class ILGeneratorExtensions
         => il.Emit(OpCodes.Newarr, arrayElementType);
 
     /// <summary>
-    /// Replaces the array element at a given index with the value or object ref valueon the evaluation stack,
+    /// Replaces the array element at a given index with the value or object ref value on the evaluation stack,
     /// whose type is specified in the instruction. This method will use the appropriate type-optimized instruction,
     /// if applicable.
     /// </summary>
@@ -181,7 +181,7 @@ public static partial class ILGeneratorExtensions
         => il.EmitSetArrayElement(typeof(T));
 
     /// <summary>
-    /// Replaces the array element at a given index with the value or object ref valueon the evaluation stack,
+    /// Replaces the array element at a given index with the value or object ref value on the evaluation stack,
     /// whose type is specified in the instruction. This method will use the appropriate type-optimized instruction,
     /// if applicable.
     /// </summary>
