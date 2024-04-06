@@ -1,3 +1,5 @@
 <Project>
-    <PackageVersion Include="System.Reflection.Emit.ILGeneration" Version="4.3.0"/>
+    <ItemGroup>
+        <PackageVersion Include="System.Reflection.Emit.ILGeneration" Version="4.3.0"/>
+    </ItemGroup>
 </Project>
