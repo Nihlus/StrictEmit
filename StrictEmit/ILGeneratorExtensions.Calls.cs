@@ -113,7 +113,7 @@ namespace StrictEmit
             params Type[] parameterTypes
         )
         {
-            returnType = returnType ?? typeof(void);
+            returnType ??= typeof(void);
 
             il.EmitCalli(OpCodes.Calli, callingConventions, returnType, parameterTypes, null);
         }
@@ -141,7 +141,7 @@ namespace StrictEmit
             params Type[] parameterTypes
         )
         {
-            returnType = returnType ?? typeof(void);
+            returnType ??= typeof(void);
 
             var calliOverload = typeof(ILGenerator).GetMethod
             (
